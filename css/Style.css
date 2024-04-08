@@ -1,0 +1,55 @@
+body {
+    background-attachment: fixed;
+
+    background-position: 50%, 0;
+
+}
+
+body {
+    font-size: 10px;
+    background-image: url("../imagenes/camion.jpg");
+    background-repeat: no-repeat;
+    background-repeat: repeat-y;
+}
+
+h1 {
+    background-color: burlywood;
+    margin: auto;
+    padding: auto;
+    border-color: brown;
+    border-radius: 100px;
+
+
+}
+
+div {
+
+    float: left;
+    background-color: aqua;
+    border-right: 100px;
+    border-color: black;
+
+    height: 30PX;
+    width: 150PX;
+}
+
+.menu {
+
+    border-radius: 100px;
+    border-color: black;
+    margin: 30px;
+    padding: 1px 50px;
+
+}
+
+.login {
+    float: right;
+}
+
+.imagen {
+    background-image: url("../imagenes/camion.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 0;
+
+}
