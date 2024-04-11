@@ -1,4 +1,5 @@
 body {
+
     background-attachment: fixed;
     background-color: rgb(136, 153, 230);
     background-position: 50%, 0;
@@ -14,6 +15,8 @@ header {
     margin: 25px;
     margin-top: 40px;
     /*Espacio interno*/
+
+    background-attachment: fixed;
     padding: 15px 5px;
 }
 
@@ -39,6 +42,42 @@ nav ul li a:hover {
     box-shadow: 0px 2PX blue;
 }
 
-nav ul li.Login {
+/*Login*/
+.posicionLogin {
     float: right;
+}
+
+nav ul li div.contenedorLogin {
+
+    position: relative;
+
+}
+
+nav ul li div span.MenuLogin {
+
+    cursor: pointer;
+    position: relative;
+
+}
+
+.contenidoMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    background-color: #fdfdfd;
+    min-width: 160px;
+    z-index: 1;
+    list-style-type: none;
+
+}
+
+
+.contenidoMenu li {
+    padding: 12px 16px;
+}
+
+.contenedorLogin:hover .contenidoMenu {
+    display: block;
+
 }
