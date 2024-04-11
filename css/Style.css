@@ -1,0 +1,95 @@
+body {
+    background-attachment: fixed;
+    background-color: rgb(136, 153, 230);
+    background-position: 50%, 0;
+    /*hola esto es un cambio*/
+
+}
+
+/*Encabezado*/
+header {
+    /*COLOR */
+    background: white;
+    /*MARGEN*/
+    margin: 25px;
+    margin-top: 40px;
+    /*Espacio interno*/
+    padding: 15px 5px;
+}
+
+
+/*Menu Listas*/
+nav ul li a {
+
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px 10px;
+
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a:hover {
+    box-shadow: 0px 2PX blue;
+}
+
+nav ul li.Login {
+    float: right;
+}
+
+
+
+
+body {
+    font-size: 10px;
+    background-image: url("../imagenes/camion.jpg");
+    background-repeat: no-repeat;
+    background-repeat: repeat-y;
+}
+
+h1 {
+    background-color: blueviolet;
+    margin: auto;
+    padding: auto;
+    border-color: brown;
+    border-radius: 100px;
+
+
+
+}
+
+div {
+
+    float: left;
+    background-color: aqua;
+    border-right: 100px;
+    border-color: black;
+
+    height: 30PX;
+    width: 150PX;
+}
+
+.menu {
+
+    border-radius: 100px;
+    border-color: black;
+    margin: 30px;
+    padding: 1px 50px;
+
+}
+
+
+
+.imagen {
+    background-image: url("../imagenes/camion.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 0;
+
+}
