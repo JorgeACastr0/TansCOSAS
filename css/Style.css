@@ -85,13 +85,13 @@ p{
 /* <uniquifier>: Use a unique and descriptive class name*/
 /* <weight>: Use a value from 200 to 700*/
 
-.oswald {
+/*.oswald {
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
-
+*/
 .ContenedorParrafoImagen{
     background-color: white;
 }
