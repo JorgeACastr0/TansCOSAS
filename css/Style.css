@@ -1,3 +1,4 @@
+/*
 *{
     font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
@@ -8,26 +9,27 @@ body {
     background-attachment: fixed;
     background-color: rgb(136, 153, 230);
     background-position: 50%, 0;
-    /*hola esto es un cambio*/
-
-
+    /*hola esto es un cambio*//*
 }
-
+*/
 /*Encabezado*/
+/*
 header {
-    /*COLOR */
+    /*COLOR 
     background: white;
-    /*MARGEN*/
+    /*MARGEN*
     margin: 25px;
     margin-top: 40px;
     /*Espacio interno*/
+    /*
     padding: 15px 5px;
     box-shadow: 4px 4px 10px;
     border-radius: 10px;
 }
 
-
+*/
 /*Menu Listas*/
+/*
 nav ul li a {
 
     font-weight: bold;
@@ -67,9 +69,9 @@ nav ul li.Login {
 p{
     font-size: 24px;
     font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
    
 }
 
@@ -81,7 +83,7 @@ p{
   font-style: normal;
     
 }
-
+*/
 /* <uniquifier>: Use a unique and descriptive class name*/
 /* <weight>: Use a value from 200 to 700*/
 
@@ -92,6 +94,9 @@ p{
   font-style: normal;
 }
 */
+/*
 .ContenedorParrafoImagen{
     background-color: white;
 }
+
+*/
