@@ -35,6 +35,8 @@ nav ul li a {
 
 }
 
+
+
 nav ul li {
     display: inline-block;
     margin-right: 20px;
@@ -44,6 +46,67 @@ nav ul li a:hover {
     box-shadow: 0px 2PX blue;
 }
 
+
+/*Login*/
+.posicionLogin {
+    float: right;
+    font: size 5px;
+}
+
+nav ul li div.contenedorLogin {
+
+    position: relative;
+    font: size 5px;
+
+}
+
+nav ul li a.admin {
+    font-size: 10px;
+    margin: 0px;
+    padding: 0px 0px;
+
+}
+
+/*
+nav ul li div span.MenuLogin {
+
+    cursor: pointer;
+    position: relative;
+
+}
+*/
+.contenidoMenu {
+
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0%;
+
+    background-color: #fdfdfd;
+    min-width: 160px;
+
+    list-style-type: none;
+
+    padding: 0;
+
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.contenidoMenu li {
+    font: size 5px;
+    padding: 12px 16px;
+}
+
+.contenedorLogin:hover .contenidoMenu {
+    font: size 5px;
+    display: block;
+
+}
+
+/*Jorge*/
 #logoIzquierda {
     float: right;
     margin-left: 10px;
@@ -84,42 +147,4 @@ p {
     background-color: white;
 }
 
-/*Login*/
-.posicionLogin {
-    float: right;
-}
-
-nav ul li div.contenedorLogin {
-
-    position: relative;
-
-}
-
-nav ul li div span.MenuLogin {
-
-    cursor: pointer;
-    position: relative;
-
-}
-
-.contenidoMenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0px;
-    background-color: #fdfdfd;
-    min-width: 160px;
-    z-index: 1;
-    list-style-type: none;
-
-}
-
-
-.contenidoMenu li {
-    padding: 12px 16px;
-}
-
-.contenedorLogin:hover .contenidoMenu {
-    display: block;
-
-}
+/*Cosas para intentar*/
