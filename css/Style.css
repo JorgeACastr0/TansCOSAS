@@ -1,8 +1,8 @@
 body {
 
     background-attachment: fixed;
-    background-color: rgb(136, 153, 230);
-    background-position: 50%, 0;
+    background-image: url("../imagenesTranscosas/fondo.jpg");
+    background-position: 61%;
     /*hola esto es un cambio*/
 
 }
@@ -15,6 +15,7 @@ header {
     margin: 25px;
     margin-top: 40px;
     /*Espacio interno*/
+    font-family: "Oswald", sans-serif;
 
     background-attachment: fixed;
     padding: 15px 5px;
@@ -117,6 +118,10 @@ nav ul li div span.MenuLogin {
     height: 30%;
 }
 
+#logoIzquierda:hover{
+    box-shadow: 3px 3px 10px;
+}
+
 p {
     font-size: 24px;
     font-family: "Oswald", sans-serif;
@@ -125,6 +130,7 @@ p {
     font-style: normal;
 
 }
+
 
 #TituloParrafo {
     font-size: 29px;
@@ -143,8 +149,47 @@ p {
 }
 
 
-.ContenedorParrafoImagen {
-    background-color: white;
-}
 
 /*Cosas para intentar*/
+
+.contenedorOpinones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.PersonaOpinon img {
+    flex-grow: 7;
+}
+
+.imagenOpinion{
+    height: 12%;
+    width: 12%;    
+    border-radius: 50%;
+   
+}
+
+
+
+.textoOpinion{
+    justify-content: right;
+
+}
+
+.imagenAcercaDeNosotros img{
+    border-radius: 50%;
+
+}
+
+footer{
+    border-radius: 10px;
+    background-color: rgb(116, 67, 116);
+    display: grid;
+    
+}
+
+.footer-derecha{
+    
+    align-items: right;
+}
