@@ -20,12 +20,15 @@ session_start();
         $usuario = $_POST["usuario"];
         $contrasena = $_POST["contrasena"];
 
-        $consultaSql = "SELECT * FROM Usuarios WHERE NombreUsuario = '$usuario' AND Clave = 'constrasena'";
+        $consultaSql = "SELECT * FROM Usuarios WHERE NombreUsuario = '$usuario' AND Clave = '$constrasena'";
         $resultadoSql = mysqli_query($datosConexion, $consultaSql);
         $datosporfila = mysqli_fecth_assoc($resultadoSql);
 
         if($datosporfila){
             $_SESSION["usuario"] = $datosporfila["NombreUsuario"];
+            $_SESSION["constrasena"]
+            
+            $_SESSION[]
             header("location: panelAdmin.php");
         }else{
             echo "Usuario Incorrecto";
