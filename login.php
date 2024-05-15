@@ -1,3 +1,46 @@
+<?php
+//Inicia sesion con el mysql
+session_start();
+    $ubicacionDB = "localhost:3307";
+    $usuarioDB = "root";
+    $claveDB = "1234";
+    $nombreDB = "Transcosas";
+
+    //Crea la conexion a la BD MySQL dentro de DOcker
+    $datosConexion = mysqli_connect($ubicacionDB,$usuarioDB, $claveDB, $nombreDB);
+
+    //Compureba que si se haya conectado 
+    if (!$datosConexion){
+        die("Conexion a la BD fallida: ".mysqli_connect_error());
+    }
+    echo "Conectado a la base de datos de Transcosas";
+
+    if (isset($_POST["usuario"] && $_POST["contrasena"])){
+
+        $usuario = $_POST["usuario"];
+        $contrasena = $_POST["contrasena"];
+
+        $consultaSql = "SELECT * FROM Usuarios WHERE NombreUsuario = '$usuario' AND Clave = 'constrasena'";
+        $resultadoSql = mysqli_query($datosConexion, $consultaSql);
+        $datosporfila = mysqli_fecth_assoc($resultadoSql);
+
+        if($datosporfila){
+            $_SESSION["usuario"] = $datosporfila["NombreUsuario"];
+            header("location: panelAdmin.php");
+        }else{
+            echo "Usuario Incorrecto";
+        }
+
+
+    } else{
+        echo "Error no se han introducido credenciales";
+    }
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
