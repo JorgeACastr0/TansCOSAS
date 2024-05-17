@@ -19,6 +19,7 @@ session_start();
 
         $usuario = $_POST["usuario"];
         $contrasena = $_POST["contrasena"];
+        $tipoUsuario;
 
         $consultaSql = "SELECT * FROM Usuarios WHERE NombreUsuario = '$usuario' AND Clave = '$constrasena'";
         $resultadoSql = mysqli_query($datosConexion, $consultaSql);
@@ -26,10 +27,17 @@ session_start();
 
         if($datosporfila){
             $_SESSION["usuario"] = $datosporfila["NombreUsuario"];
-            $_SESSION["constrasena"]
-            
-            $_SESSION[]
-            header("location: panelAdmin.php");
+            $_SESSION["constrasena"] = $datosporfila["Clave"];
+      
+
+            if ($resultadoSql = true){
+              if ($tipoUsuario == 1){
+                 header("location: panelAdmin.php");
+              }else if($tipoUsuario == 2){
+                
+                header("location: panelEmpleado.php");
+              }
+            }       
         }else{
             echo "Usuario Incorrecto";
         }
