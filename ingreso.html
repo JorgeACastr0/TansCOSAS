@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pagina de ingreso empleado</title>
-    <link rel="stylesheet" href="css/Style.css">
+    <title>pagina de ingreso administrativo</title>
+    <link rel="stylesheet" href="css/Style.css"> 
     
 </head>
 <body>
@@ -15,8 +15,8 @@
             <li><a href="acercaDeNosotros.html">ACERCA DE NOSOTROS</a></li>
             <li><a href="servicios.html">SERVICIOS</a></li>
             <li><a href="rutas.html">RUTAS</a></li>
-            <li class="posicionLogin">
-                <div class="contenedorLogin">
+            <li class="posicionLogin"> <a href="ingreso.html">LOGIN</a></li>
+                <!---<div class="contenedorLogin">
                     <span class="MenuLogin">LOGIN</span>
                     <ul class="contenidoMenu   ">
                         <li><a class="admin" href="ingresoAdmin.html">ADMINISTRADOR</a></li><br>
@@ -27,31 +27,26 @@
             </li>
 
         </ul>
-
-
-    </nav>
-
+    -->
+    </nav>      
       </header>
-      <CENTER><img src ="imagenesTranscosas/otrocamion.jpg" alt="imagen" title="etiqueta de la imagen" width="600" height="200" /></CENTER>
-      
+
+    <CENTER><img src ="imagenesTranscosas/otrocamion.jpg" alt="imagen" title="etiqueta de la imagen" width="600" height="200" /></CENTER>
+     
     <CENTER><h1>Bienvenido transportes CO S.A.S</h1></CENTER>
-    <CENTER><h3>ingreso empleado</h3></CENTER>
+    <CENTER><h3>ingreso administrativo</h3></CENTER>
     <CENTER><h4>ingreso por correo electronico</h4></CENTER>
     
-
-    <CENTER><form action="/submit-formulario-de-ingreso" method="post">
-  <p><div>
-    <label for="usuario">Usuario:</label>
-    <input type="text" id="usuario" name="usuario">
-  </div></p>
-  <p><div>
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" id="contrasena" name="contrasena">
-  </div></p>
-<p><div>
-    <input type="submit" value="Ingresar a plataforma web">
-  </div>
-</form></CENTER></p>
+<CENTER>
+    <h2>Login</h2>
+    <form action="login.php" method="post">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required><br><br>
+        <button type="submit">Iniciar sesión</button>
+    </form>
+  </CENTER>
 
 
 

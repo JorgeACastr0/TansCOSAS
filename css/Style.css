@@ -155,7 +155,8 @@ p {
 .contenedorOpinones{
     display: flex;
     align-items: center;
-    margin-inline: 50px;
+    justify-content: center;
+  
 }
 
 .PersonaOpinon img {
