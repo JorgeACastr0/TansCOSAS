@@ -1,60 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pagina de ingreso empleado</title>
-    <link rel="stylesheet" href="css/Style.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pagina de ingreso empleado</title>
+  <link rel="stylesheet" type="text/css" href="css/Style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+
 </head>
+
 <body>
-    <header>
-      <nav>
-        <ul class="MenuLista">
-            <li><a href="index.html">INICIO</a></li>
-            <li><a href="acercaDeNosotros.html">ACERCA DE NOSOTROS</a></li>
-            <li><a href="servicios.html">SERVICIOS</a></li>
-            <li><a href="rutas.html">RUTAS</a></li>
-            <li class="posicionLogin">
-                <div class="contenedorLogin">
-                    <span class="MenuLogin">LOGIN</span>
-                    <ul class="contenidoMenu   ">
-                        <li><a class="admin" href="ingresoAdmin.html">ADMINISTRADOR</a></li><br>
-                        <li><a class="admin" href="ingresoEmpleado.html">EMPLEADO</a></li>
-                </div>
+  <header>
+    <nav>
+      <ul class="MenuLista">
+        <li><a href="index.html">INICIO</a></li>
+        <li><a href="acercaDeNosotros.html">ACERCA DE NOSOTROS</a></li>
+        <li><a href="servicios.html">SERVICIOS</a></li>
+        <li><a href="rutas.html">RUTAS</a></li>
+        <li class="posicionLogin">
+          <div class="contenedorLogin">
+            <span class="MenuLogin">LOGIN</span>
+            <ul class="contenidoMenu   ">
+              <li><a class="admin" href="ingresoAdmin.html">ADMINISTRADOR</a></li><br>
+              <li><a class="admin" href="ingresoEmpleado.html">EMPLEADO</a></li>
+          </div>
 
-                </div>
-            </li>
+          </div>
+        </li>
 
-        </ul>
+      </ul>
 
 
     </nav>
 
-      </header>
-      <CENTER><img src ="imagenesTranscosas/otrocamion.jpg" alt="imagen" title="etiqueta de la imagen" width="600" height="200" /></CENTER>
-      
-    <CENTER><h1>Bienvenido transportes CO S.A.S</h1></CENTER>
-    <CENTER><h3>ingreso empleado</h3></CENTER>
-    <CENTER><h4>ingreso por correo electronico</h4></CENTER>
-    
+  </header>
+  <CENTER><img src="imagenesTranscosas/otrocamion.jpg" alt="imagen" title="etiqueta de la imagen" width="600"
+      height="200" /></CENTER>
 
-    <CENTER><form action="/submit-formulario-de-ingreso" method="post">
-  <p><div>
-    <label for="usuario">Usuario:</label>
-    <input type="text" id="usuario" name="usuario">
-  </div></p>
-  <p><div>
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" id="contrasena" name="contrasena">
-  </div></p>
-<p><div>
-    <input type="submit" value="Ingresar a plataforma web">
-  </div>
-</form></CENTER></p>
+  <CENTER>
+    <h1>Bienvenido transportes CO S.A.S</h1>
+  </CENTER>
+  <CENTER>
+    <h3>ingreso empleado</h3>
+  </CENTER>
+  <CENTER>
+    <h4>ingreso por correo electronico</h4>
+  </CENTER>
 
 
+  <CENTER>
+    <form action="/submit-formulario-de-ingreso" method="post">
+      <p>
+      <div>
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario">
+      </div>
+      </p>
+      <p>
+      <div>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena">
+      </div>
+      </p>
+      <p>
+      <div>
+        <input type="submit" value="Ingresar a plataforma web">
+      </div>
+    </form>
+  </CENTER>
+  </p>
 
-    
+
+
+
 </body>
+
 </html>

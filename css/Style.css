@@ -118,7 +118,7 @@ nav ul li div span.MenuLogin {
     height: 30%;
 }
 
-#logoIzquierda:hover{
+#logoIzquierda:hover {
     box-shadow: 3px 3px 10px;
 }
 
@@ -152,44 +152,44 @@ p {
 
 /*Cosas para intentar*/
 
-.contenedorOpinones{
+.contenedorOpinones {
     display: flex;
     align-items: center;
     justify-content: center;
-  
+
 }
 
 .PersonaOpinon img {
     flex-grow: 7;
 }
 
-.imagenOpinion{
+.imagenOpinion {
     height: 12%;
-    width: 12%;    
+    width: 12%;
     border-radius: 50%;
-   
+
 }
 
 
 
-.textoOpinion{
+.textoOpinion {
     justify-content: right;
 
 }
 
-.imagenAcercaDeNosotros img{
+.imagenAcercaDeNosotros img {
     border-radius: 50%;
 
 }
 
-footer{
+footer {
     border-radius: 10px;
     background-color: rgb(116, 67, 116);
     display: grid;
-    
+
 }
 
-.footer-derecha{
-    
+.footer-derecha {
+
     align-items: right;
 }
