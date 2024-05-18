@@ -1,12 +1,8 @@
 <?php
 session_start();
 
-$nombre =$_POST['Nombre'];
-$apellido =$_POST['Apellido'];
-$username =$_POST['Username'];
-$contraseña =$_POST['Contraseña'];
-$tipoUsuario =$_POST['TipoUsuario'];
 ?>
+
 
 
 
@@ -104,5 +100,3 @@ $tipoUsuario =$_POST['TipoUsuario'];
     
     </body>
 </html>
-
-
