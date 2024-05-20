@@ -17,7 +17,7 @@
             <li><a href="#ruta">RUTAS</a></li>
             <li><a href="#vehiculos">VEHICULOS</a></li>
             <li><a href="#cargas">CARGAS</a></li>
-            <li class="posicionLogin"><a href="/logout">Cerrar sesión</a></li>
+            <li class="posicionLogin"><a href="index.html">Cerrar sesión</a></li>
 
 
         </ul>
@@ -25,27 +25,58 @@
 
 </header>
 
-<?php ?>
-/* quitar este (?>) */
-<!--
-// Conexión a la base de datos y consulta para obtener la información del empleado
-//$conexion = mysqli_connect("localhost", "usuario", "contraseña", "nombre_basedatos");
-/*if ($conexion === false) {
-    die("Error: No se pudo conectar. " . mysqli_connect_error());
+<?php
+
+session_start();
+require_once login.php;
+
+//Variables de conexion:
+$ubicacionDB = "localhost:3307";
+$usuarioDB = "root";
+$claveDB = "12345";
+$nombreDB = "BaseDatosTransporte";
+
+//Crea la conexion a la BD MySQL dentro de DOcker
+$datosConexion = mysqli_connect($ubicacionDB,$usuarioDB, $claveDB, $nombreDB);
+
+//Compureba que si se haya conectado 
+if (!$datosConexion){
+    die("Conexion a la BD fallida: ".mysqli_connect_error());
+}
+else{
+echo "Conectado a la base de datos de Transcosas <hr>";
 }
 
-$id_empleado = $_GET['id']; // Suponiendo que recibes el ID del empleado por algún medio
+?>
 
-$query_empleado = "SELECT nombre, apellido, usuario, foto FROM empleados WHERE id = $id_empleado";
-$resultado_empleado = mysqli_query($conexion, $query_empleado);
-if ($resultado_empleado) {
-    $empleado = mysqli_fetch_assoc($resultado_empleado);
-    ?>
--->
 
 
 
 <body>
+
+<?php
+    $leerCamionesSQL = "SELECT 
+                        Empleados.IDEmpleado, 
+                        Empleados.NombreEmpleado, 
+                        Empleados.Telefono, 
+                        Empleados.ApellidoEmpleado, 
+                        Camiones.Placa, 
+                        Camiones.Modelo, 
+                        Camiones.Capacidad
+                        FROM 
+                            Empleados
+                        INNER JOIN 
+                            Camiones 
+                        ON 
+                            Empleados.IDEmpleado = Camiones.IDEmpleado; 
+                        WHERE $usuario";
+                            
+                
+                            $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);                     
+                            
+                           
+                           ($rowCamiones = mysqli_fetch_array($queryCamiones)) ?>
+                           
     <div class="content">
         <div class="ImagenEmpleado">
             <img src="imagenesTranscosas/Logo.png" alt="Foto de perfil">
@@ -55,13 +86,14 @@ if ($resultado_empleado) {
 
             <h1>Información del Empleado</h1>
 
-            <p><b>Nombre:</b> </p>
-            <p><b>Apellido:</b> </p>
-            <p><b>Usuario:</b> </p>
+            <p><b>Nombre: <?= $rowCamiones["NombreEmpleado"] ?></b> </p>
+            <p><b>Apellido: <?= $rowCamiones["ApellidoEmpleado"] ?> </b> </p>
+            <p><b>Usuario: <?= $rowCamiones["NombreEmpleado"] ?></b> </p>
 
 
-
+                            
         </div>
+       
 
         <div id="vehiculos" class="content-section">
             <h2>VEHICULOS</h2>
