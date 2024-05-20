@@ -8,28 +8,29 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PANEL ADMIN</title>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/Style.css">
-    </head>
-    <body>
-        <div class="panel">
-            <div>
-                <h3>USUARIO</h3>
 
-                <hr>
-            </div>
-            <ul>
-                <li><a href="#empleados">Empleados</a></li>
-                <li><a href="#camiones">Camiones</a></li>
-                <li><a href="#rutas">Rutas</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#proveedores">Proveedores</a></li>
-            </ul>
+<head>
+    <title>PANEL ADMIN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Style.css">
+</head>
+
+<body>
+    <div class="panel">
+        <div>
+            <h3>USUARIO</h3>
+
+            <hr>
         </div>
-        <div class="content">
+        <ul>
+            <li><a href="#empleados">Empleados</a></li>
+            <li><a href="#camiones">Camiones</a></li>
+            <li><a href="#rutas">Rutas</a></li>
+
+        </ul>
+    </div>
+    <div class="content">
         <div id="empleados" class="section">
             <h2>Empleados</h2>
             <p>Contenido de Empleados.</p>
@@ -38,14 +39,15 @@ session_start();
                 <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" require><br><br>
                 <input type="text" id="Username" name="Username" placeholder="Username" require><br><br>
                 <input type="text" id="contraseña" name="Contraseña" placeholder="Contraseña" require><br><br>
-                <input type="text" id="TipoUsuario" name="TipoUsuario" placeholder="Administrador/Usuario" require><br><br>
+                <input type="text" id="TipoUsuario" name="TipoUsuario" placeholder="Administrador/Usuario"
+                    require><br><br>
 
-                <input type="submit" value= "Agregar">
+                <input type="submit" value="Agregar">
             </form>
 
             <div>
                 <h2>Usuarios Registrados</h2>
-                <table >
+                <table>
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -60,20 +62,20 @@ session_start();
 
                     </thead>
                     <tbody>
-                        <!--<?php while($row = mysqli_fetch_array($query)):?> -->
-                        <tr>
-                        <th><?= $row["id"] ?></th>
-                        <th><?= $row["nombre"] ?></th>
-                        <th><?= $row["apellido"] ?></th>
-                        <th><?= $row["username"] ?></th>
-                        <th><?= $row["contraseña"] ?></th>
-                        <th><?= $row["tipo"] ?></th>
-                        
+                        <!--<?php while ($row = mysqli_fetch_array($query)): ?> -->
+                            <tr>
+                                <th><?= $row["id"] ?></th>
+                                <th><?= $row["nombre"] ?></th>
+                                <th><?= $row["apellido"] ?></th>
+                                <th><?= $row["username"] ?></th>
+                                <th><?= $row["contraseña"] ?></th>
+                                <th><?= $row["tipo"] ?></th>
 
-                        <th><a href="">Editar</a></th>
-                        <th><a href="">Eliminar</a></th>
-                        </tr>
-                        <?php endwhile;?>
+
+                                <th><a href="">Editar</a></th>
+                                <th><a href="">Eliminar</a></th>
+                            </tr>
+                        <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>
@@ -96,7 +98,8 @@ session_start();
             <p>Contenido de Proveedores.</p>
         </div>
     </div>
-         
-    
-    </body>
+
+
+</body>
+
 </html>
