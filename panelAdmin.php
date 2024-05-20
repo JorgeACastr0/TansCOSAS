@@ -16,7 +16,7 @@ if (!$datosConexion) {
 } else {
     echo "Conectado a la base de datos de Transcosas <hr>";
 }
-}
+
 
 
 ?>
@@ -85,8 +85,8 @@ if (!$datosConexion) {
                 $ID = $_POST["Cedula"];
 
 
-                $insertarSQL = "INSERT INTO Empleados (IDEmpleado, NombreEmpleado, Telefono, ApellidoEmpleado) VALUES ($ID,'$nombreEmpleado', $telefono, '$apellidoEmpleado');";
-                mysqli_query($datosConexion, $insertarSQL);
+                $insertarEmpleadosSQL = "INSERT INTO Empleados (IDEmpleado, NombreEmpleado, Telefono, ApellidoEmpleado) VALUES ($ID,'$nombreEmpleado', $telefono, '$apellidoEmpleado');";
+                mysqli_query($datosConexion, $insertarEmpleadosSQL);
                 echo "Se han introducidos los siguientes datos:" . $nombreEmpleado . $apellidoEmpleado . $telefono . " Satisfactoriamente";
                 echo "<meta http-equiv='refresh' content='0; url=#empleados'>";
             }
@@ -112,11 +112,27 @@ if (!$datosConexion) {
                     </thead>
                     <tbody>
                         <?php
-                        $leerUsuariosSQL = "SELECT * FROM Usuarios ";
-                        $leerEmpleadosSQL = "SELECT * FROM Empleados";
+                        $leerUsuariosSQL = "SELECT 
+                        Empleados.IDEmpleado, 
+                        Empleados.NombreEmpleado, 
+                        Empleados.Telefono, 
+                        Empleados.ApellidoEmpleado, 
+                        Usuarios.IDUsuarios, 
+                        Usuarios.NombreUsuario, 
+                        Usuarios.Clave,
+                        Usuarios.TipoUsuario
+                    FROM 
+                        Empleados
+                    INNER JOIN 
+                        Usuarios 
+                    ON 
+                        Empleados.IDEmpleado =  Usuarios.idEmpleados
+                    ORDER BY 
+                        Empleados.IDEmpleado";
+                        
 
                         $query = mysqli_query($datosConexion, $leerUsuariosSQL);
-                        $queryLeerEmpleados = mysqli_query($datosConexion, $leerEmpleadosSQL);
+                       
 
 
                         while ($row = mysqli_fetch_array($query)): ?>
@@ -124,9 +140,9 @@ if (!$datosConexion) {
 
                             <tr>
                                 <th><?= $row["IDUsuarios"] ?></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th><?= $row["NombreEmpleado"] ?></th>
+                                <th><?= $row["ApellidoEmpleado"] ?></th>
+                                <th><?= $row["Telefono"] ?></th>
                                 <th><?= $row["NombreUsuario"]; ?></th>
                                 <th><?= $row["Clave"] ?></th>
                                 <th><?= $row["TipoUsuario"] ?></th>
