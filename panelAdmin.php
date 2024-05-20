@@ -23,28 +23,29 @@ echo "Conectado a la base de datos de Transcosas <hr>";
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PANEL ADMIN</title>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/Style.css">
-    </head>
-    <body>
-        <div class="panel">
-            <div>
-                <h3>USUARIO</h3>
 
-                <hr>
-            </div>
-            <ul>
-                <li><a href="#empleados">Empleados</a></li>
-                <li><a href="#camiones">Camiones</a></li>
-                <li><a href="#rutas">Rutas</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#proveedores">Proveedores</a></li>
-            </ul>
+<head>
+    <title>PANEL ADMIN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Style.css">
+</head>
+
+<body>
+    <div class="panel">
+        <div>
+            <h3>USUARIO</h3>
+
+            <hr>
         </div>
-        <div class="content">
+        <ul>
+            <li><a href="#empleados">Empleados</a></li>
+            <li><a href="#camiones">Camiones</a></li>
+            <li><a href="#rutas">Rutas</a></li>
+
+        </ul>
+    </div>
+    <div class="content">
         <div id="empleados" class="section">
             <h2>Empleados</h2>
             <p>Contenido de Empleados.</p>
@@ -54,7 +55,7 @@ echo "Conectado a la base de datos de Transcosas <hr>";
                 <input type="text" id="Telefono" name="Telefono" placeholder="Telefono" required><br><br>
                 <input type="text" id="TipoUsuario" name="TipoUsuario" placeholder="Administrador/Usuario" required><br><br>
 
-                <input type="submit" value= "Agregar">
+                <input type="submit" value="Agregar">
             </form>
 
         <?php
@@ -88,20 +89,20 @@ echo "Conectado a la base de datos de Transcosas <hr>";
 
                     </thead>
                     <tbody>
-                        <!--<?php while($row = mysqli_fetch_array($query)):?> -->
-                        <tr>
-                        <th><?= $row["id"] ?></th>
-                        <th><?= $row["nombre"] ?></th>
-                        <th><?= $row["apellido"] ?></th>
-                        <th><?= $row["username"] ?></th>
-                        <th><?= $row["contraseña"] ?></th>
-                        <th><?= $row["tipo"] ?></th>
-                        
+                        <!--<?php while ($row = mysqli_fetch_array($query)): ?> -->
+                            <tr>
+                                <th><?= $row["id"] ?></th>
+                                <th><?= $row["nombre"] ?></th>
+                                <th><?= $row["apellido"] ?></th>
+                                <th><?= $row["username"] ?></th>
+                                <th><?= $row["contraseña"] ?></th>
+                                <th><?= $row["tipo"] ?></th>
 
-                        <th><a href="">Editar</a></th>
-                        <th><a href="">Eliminar</a></th>
-                        </tr>
-                        <?php endwhile;?>
+
+                                <th><a href="">Editar</a></th>
+                                <th><a href="">Eliminar</a></th>
+                            </tr>
+                        <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>
@@ -124,7 +125,8 @@ echo "Conectado a la base de datos de Transcosas <hr>";
             <p>Contenido de Proveedores.</p>
         </div>
     </div>
-         
-    
-    </body>
+
+
+</body>
+
 </html>
