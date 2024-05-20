@@ -254,7 +254,8 @@ footer {
 
 /* Estilos para el contenido de rutas */
 #ruta {
-    background-color: #e0e0e0;
+    background-color: #ccffcc;
+    /* Verde claro */
     padding: 20px;
 }
 
