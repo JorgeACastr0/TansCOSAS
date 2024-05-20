@@ -43,29 +43,52 @@ if ($resultado_empleado) {
     ?>
 -->
 
-*/
+
 
 <body>
-    <div id="panelEmpleado" class="content-section">
+    <div class="content">
+        <div class="ImagenEmpleado">
+            <img src="imagenesTranscosas/Logo.png" alt="Foto de perfil">
+        </div>
 
-        <h1>Información del Empleado</h1>
+        <div id="panelEmpleado" class="content-section">
 
-        <p><b>Nombre:</b> </p>
-        <p><b>Apellido:</b> </p>
-        <p><b>Usuario:</b> </p>
-    </div>
+            <h1>Información del Empleado</h1>
 
-    <div class="ImagenEmpleado">
-        <img src="imagenesTranscosas/Logo.png" alt="Foto de perfil">
-    </div>
-
-
+            <p><b>Nombre:</b> </p>
+            <p><b>Apellido:</b> </p>
+            <p><b>Usuario:</b> </p>
 
 
 
-    <div id="ruta" class="content-section">
-        <?php
-        //} else {
+        </div>
+
+        <div id="vehiculos" class="content-section">
+            <h2>VEHICULOS</h2>
+            <p><b>Camion Azul</b></p>
+            <p><b>placa: </b></p>
+
+            <!-- Contenido de vehículos -->
+        </div>
+        <div id="cargas" class="content-section">
+            <h2>CARGAS</h2>
+            <P>sajbdhbsad
+                sadadksanbd
+                dsandkjnsakld nask
+                asdnjsandjklasn dnsajkdn
+
+                asdnjsandjklasn
+            </P>
+            <!-- Contenido de cargas -->
+        </div><br>
+
+
+
+
+
+        <div id="ruta" class="content-section">
+
+            <!--} else {
 //    echo "Error al obtener la información del empleado.";
 //}
         
@@ -75,34 +98,36 @@ if ($resultado_empleado) {
         //$resultado_rutas = mysqli_query($conexion, $query_rutas);
         //if ($resultado_rutas) {
         ?>
+-->
+            <h2>Rutas del Día</h2>
 
-        <h2>Rutas del Día</h2>
-        <ul>
-            <?php //while ($ruta = mysqli_fetch_assoc($resultado_rutas)) { ?>
-            <li><?php //echo $ruta['nombre_ruta']; ?></li>
-            <?php //} ?>
-        </ul>
+            <ul>
 
-        <?php
-        //} else {
-        //    echo "Error al obtener las rutas del día.";
-        //}
-        
-        //mysqli_close($conexion);
-        ?>
+                <?php //while ($ruta = mysqli_fetch_assoc($resultado_rutas)) { ?>
+                <li><?php //echo $ruta['nombre_ruta']; ?></li>
+                <?php //} ?>
+            </ul>
+
+            <?php
+            //} else {
+            //    echo "Error al obtener las rutas del día.";
+            //}
+            
+            //mysqli_close($conexion);
+            ?>
+
+
+
+        </div><br><br>
+        <div class="Mapa">
+            <img src="imagenesTranscosas/Mapa.png" alt="Mapa">
+
+        </div>
+
 
 
 
     </div>
-
-    <div id="vehiculos" class="content-section">
-        <!-- Contenido de vehículos -->
-    </div>
-
-    <div id="cargas" class="content-section">
-        <!-- Contenido de cargas -->
-    </div>
-
 
 </body>
 
