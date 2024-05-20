@@ -50,24 +50,40 @@ echo "Conectado a la base de datos de Transcosas <hr>";
             <h2>Empleados</h2>
             <p>Contenido de Empleados.</p>
             <form action="panelAdmin.php" method="post">
+                <input type="number" id="cedula" name="Cedula" placeholder="Cedula" required><br><br>
                 <input type="text" id="nombre" name="Nombre" placeholder="Nombre" required><br><br>
                 <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" required><br><br>
-                <input type="text" id="Telefono" name="Telefono" placeholder="Telefono" required><br><br>
+                <input type="text" id="Usuario" name="Usuario" placeholder="Usuario" required><br><br>
+                <input type="text" id="Clave" name="Clave" placeholder="Clave" required><br><br>
+                <input type="number" id="Telefono" name="Telefono" placeholder="Telefono" required><br><br>
                 <input type="text" id="TipoUsuario" name="TipoUsuario" placeholder="Administrador/Usuario" required><br><br>
 
                 <input type="submit" value="Agregar">
             </form>
 
         <?php
-        if (isset($_POST["Nombre"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"]) && && isset($_POST["TipoUsuario"])) {
+
+        if (isset($_POST["Cedula"]) && isset($_POST["Usuario"]) && isset($_POST["Clave"]) && isset($_POST["TipoUsuario"])){
+            $ID = $_POST["Cedula"];
+            $Usuario = mysqli_real_escape_string($datosConexion, $_POST["Usuario"]);
+            $Clave = mysqli_real_escape_string($datosConexion, $_POST["Clave"]);
+            $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST["TipoUsuario"]);
+
+            $insertarUsuariosSQL = "INSERT INTO Usuarios (IDUsuarios, NombreUsuario, Clave, TipoUsuario) VALUES ($ID, '$Usuario', '$Clave', '$tipoUsuario')";
+            mysqli_query($datosConexion, $insertarUsuariosSQL);
+        }
+
+
+        if (isset($_POST["Nombre"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"]) ) {
 
             $nombreEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Nombre"]);
             $apellidoEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Apellido"]);
-            $telefono = 
-            $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST["TipoUsuario"]);
+            $telefono = $_POST["Telefono"];
+            
 
-            $sql = "INSERT INTO Empleados (NombreEmpleado, "
-
+            $insertarSQL = "INSERT INTO Empleados (NombreEmpleado, Telefono, ApellidoEmpleado) VALUES ('$nombreEmpleado', $telefono, '$apellidoEmpleado');";
+            mysqli_query($datosConexion, $insertarSQL);
+            echo "Se han introducidos los siguientes datos:".$nombreEmpleado.$apellidoEmpleado.$telefono." Satisfactoriamente";
         }
         ?>
 
@@ -80,6 +96,7 @@ echo "Conectado a la base de datos de Transcosas <hr>";
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
+                            <th>Telefono</th>
                             <th>Username</th>
                             <th>Contraseña</th>
                             <th>Tipo </th>
@@ -89,19 +106,31 @@ echo "Conectado a la base de datos de Transcosas <hr>";
 
                     </thead>
                     <tbody>
-                        <!--<?php while ($row = mysqli_fetch_array($query)): ?> -->
+                        <?php
+                            $leerUsuariosSQL = "SELECT * FROM Usuarios ";
+                            $leerEmpleadosSQL = "SELECT * FROM Empleados";
+                
+                            $query = mysqli_query($datosConexion, $leerUsuariosSQL);
+                            $queryLeerEmpleados = mysqli_query($datosConexion, $leerEmpleadosSQL);
+                            
+                           
+                            while ($row = mysqli_fetch_array($query)): ?>
+                            
+                           
                             <tr>
-                                <th><?= $row["id"] ?></th>
-                                <th><?= $row["nombre"] ?></th>
-                                <th><?= $row["apellido"] ?></th>
-                                <th><?= $row["username"] ?></th>
-                                <th><?= $row["contraseña"] ?></th>
-                                <th><?= $row["tipo"] ?></th>
+                                <th><?= $row["IDUsuarios"] ?></th>                                
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th><?= $row["NombreUsuario"]; ?></th>
+                                <th><?= $row["Clave"] ?></th>
+                                <th><?= $row["TipoUsuario"] ?></th>
 
 
                                 <th><a href="">Editar</a></th>
                                 <th><a href="">Eliminar</a></th>
                             </tr>
+                          
                         <?php endwhile; ?>
                     </tbody>
                 </table>
@@ -111,19 +140,94 @@ echo "Conectado a la base de datos de Transcosas <hr>";
         <div id="camiones" class="section">
             <h2>Camiones</h2>
             <p>Contenido de Camiones.</p>
+            <form action="panelAdmin.php" method="post">
+                <input type="text" id="Placa" name="Placa" placeholder="Placa" required><br><br>
+                <input type="text" id="Modelo" name="Modelo" placeholder="Modelo" required><br><br>
+                <input type="text" id="Capacidad" name="Capacidad" placeholder="Capacidad" required><br><br>
+                <input type="number" id="IDEmpleado" name="IDEmpleado" placeholder="IDEmpleado" required><br><br>
+                <input type="submit" value="Agregar">
+            </form>
+            <?php
+
+        if (isset($_POST["Placa"]) && isset($_POST["Modelo"]) && isset($_POST["Capacidad"]) && isset($_POST["IDEmpleado"])){
+            $Placa = mysqli_real_escape_string($datosConexion, $_POST["Placa"]);
+            $Modelo = mysqli_real_escape_string($datosConexion, $_POST["Modelo"]);
+            $Capacidad = mysqli_real_escape_string($datosConexion, $_POST["Capacidad"]);
+            $IDEmpleado = mysqli_real_escape_string($datosConexion, $_POST["IDEmpleado"]);
+
+            $insertarUsuariosSQL = "INSERT INTO Camiones (Placa, Modelo, Capacidad, IDEmpleado) VALUES ('$Placa', '$Modelo', '$Capacidad', $IDEmpleado)";
+            mysqli_query($datosConexion, $insertarUsuariosSQL);
+        }
+
+        
+        ?>
+
+<div>
+                <h2>CAMIONES REGISTRADOS</h2>
+                <table border="3">
+                    <thead>
+                        <tr>
+                            <th>IDEmpleado</th>
+                            <th>Nombre Empleado</th>
+                            <th>Telefono</th>
+                            <th>Apellido Empleado</th>
+                            <th>Placa</th>
+                            <th>Modelo</th>
+                            <th>Capacidad </th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <?php
+                            $leerCamionesSQL = "SELECT 
+                            Empleados.IDEmpleado, 
+                            Empleados.NombreEmpleado, 
+                            Empleados.Telefono, 
+                            Empleados.ApellidoEmpleado, 
+                            Camiones.Placa, 
+                            Camiones.Modelo, 
+                            Camiones.Capacidad
+                        FROM 
+                            Empleados
+                        INNER JOIN 
+                            Camiones 
+                        ON 
+                            Empleados.IDEmpleado = Camiones.IDEmpleado; ";
+                            
+                
+                            $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);                     
+                            
+                           
+                            while ($rowCamiones = mysqli_fetch_array($queryCamiones)): ?>
+                           
+                            <tr>
+                                <th><?= $rowCamiones["IDEmpleado"] ?></th>                                
+                                <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
+                                <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
+                                <th><?= $rowCamiones["Telefono"] ?></th>
+                                <th><?= $rowCamiones["Placa"] ?></th>
+                                <th><?= $rowCamiones["Modelo"] ?></th>
+                                <th><?= $rowCamiones["Capacidad"] ?></th>
+
+
+                                <th><a href="">Editar</a></th>
+                                <th><a href="">Eliminar</a></th>
+                            </tr>
+                            
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
         <div id="rutas" class="section">
             <h2>Rutas</h2>
             <p>Contenido de Rutas.</p>
         </div>
-        <div id="productos" class="section">
-            <h2>Productos</h2>
-            <p>Contenido de Productos.</p>
-        </div>
-        <div id="proveedores" class="section">
-            <h2>Proveedores</h2>
-            <p>Contenido de Proveedores.</p>
-        </div>
+        
     </div>
 
 
