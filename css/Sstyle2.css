@@ -1,0 +1,73 @@
+/*Menu Principal*/
+body {
+    background-color: #242424;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /*COLOR */
+    background: white;
+    /*MARGEN*/
+    margin: 25px;
+    margin-top: 40px;
+    /*Espacio interno*/
+    font-family: "Oswald", sans-serif;
+
+    background-attachment: fixed;
+    padding: 15px 5px;
+    box-shadow: 4px 4px 10px;
+    border-radius: 10px;
+}
+
+nav ul li a {
+
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px 10px;
+
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+
+}
+
+nav ul li a:hover {
+    box-shadow: 0px 2PX blue;
+}
+
+.posicionLogin {
+    float: right;
+    font: size 5px;
+}
+
+div .imagenCamionLogin {
+    height: 200px;
+    width: 400px;
+
+
+}
+
+.imagenCamionLogin {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    /* Centra horizontalmente */
+
+    /* Altura del contenedor */
+    border: 2px solid #4CAF50;
+}
+
+.imagenCamionLogin img {
+    max-width: 100%;
+    max-height: 100%;
+
+}

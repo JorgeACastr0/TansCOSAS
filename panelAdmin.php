@@ -8,14 +8,14 @@ $claveDB = "12345";
 $nombreDB = "BaseDatosTransporte";
 
 //Crea la conexion a la BD MySQL dentro de DOcker
-/*$datosConexion = mysqli_connect($ubicacionDB,$usuarioDB, $claveDB, $nombreDB);
+$datosConexion = mysqli_connect($ubicacionDB, $usuarioDB, $claveDB, $nombreDB);
 
 //Compureba que si se haya conectado 
 if (!$datosConexion) {
     die("Conexion a la BD fallida: " . mysqli_connect_error());
 } else {
     echo "Conectado a la base de datos de Transcosas <hr>";
-}*/
+}
 
 
 ?>
@@ -117,19 +117,19 @@ if (!$datosConexion) {
                         while ($row = mysqli_fetch_array($query)): ?>
 
 
-                        <tr>
-                            <th><?= $row["IDUsuarios"] ?></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th><?= $row["NombreUsuario"]; ?></th>
-                            <th><?= $row["Clave"] ?></th>
-                            <th><?= $row["TipoUsuario"] ?></th>
+                            <tr>
+                                <th><?= $row["IDUsuarios"] ?></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th><?= $row["NombreUsuario"]; ?></th>
+                                <th><?= $row["Clave"] ?></th>
+                                <th><?= $row["TipoUsuario"] ?></th>
 
 
-                            <th><a href="">Editar</a></th>
-                            <th><a href="">Eliminar</a></th>
-                        </tr>
+                                <th><a href="">Editar</a></th>
+                                <th><a href="">Eliminar</a></th>
+                            </tr>
 
                         <?php endwhile; ?>
                     </tbody>
@@ -202,21 +202,21 @@ if (!$datosConexion) {
 
                         while ($rowCamiones = mysqli_fetch_array($queryCamiones)): ?>
 
-                        <tr>
-                            <th><?= $rowCamiones["IDEmpleado"] ?></th>
-                            <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
-                            <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
-                            <th><?= $rowCamiones["Telefono"] ?></th>
-                            <th><?= $rowCamiones["Placa"] ?></th>
-                            <th><?= $rowCamiones["Modelo"] ?></th>
-                            <th><?= $rowCamiones["Capacidad"] ?></th>
+                            <tr>
+                                <th><?= $rowCamiones["IDEmpleado"] ?></th>
+                                <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
+                                <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
+                                <th><?= $rowCamiones["Telefono"] ?></th>
+                                <th><?= $rowCamiones["Placa"] ?></th>
+                                <th><?= $rowCamiones["Modelo"] ?></th>
+                                <th><?= $rowCamiones["Capacidad"] ?></th>
 
 
-                            <th><a href="">Editar</a></th>
-                            <th><a href="delete_user.php?id=<?= $row['IDEmpleado'] ?>"
-                                    class="users-table--delete">Eliminar</a></th>
-                            <th><a href="">Eliminar</a></th>
-                        </tr>
+                                <th><a href="">Editar</a></th>
+                                <th><a href="delete_user.php?id=<?= $row['IDEmpleado'] ?>"
+                                        class="users-table--delete">Eliminar</a></th>
+                                <th><a href="">Eliminar</a></th>
+                            </tr>
 
                         <?php endwhile; ?>
                     </tbody>
