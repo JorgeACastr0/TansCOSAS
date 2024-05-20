@@ -37,7 +37,7 @@ $claveDB = "12345";
 $nombreDB = "BaseDatosTransporte";
 
 //Crea la conexion a la BD MySQL dentro de DOcker
-/*$datosConexion = mysqli_connect($ubicacionDB, $usuarioDB, $claveDB, $nombreDB);
+$datosConexion = mysqli_connect($ubicacionDB, $usuarioDB, $claveDB, $nombreDB);
 
 //Compureba que si se haya conectado 
 if (!$datosConexion) {
@@ -45,7 +45,7 @@ if (!$datosConexion) {
 } else {
     echo "Conectado a la base de datos de Transcosas <hr>";
 }
-*/
+
 ?>
 
 
@@ -68,13 +68,13 @@ if (!$datosConexion) {
                             Camiones 
                         ON 
                             Empleados.IDEmpleado = Camiones.IDEmpleado; 
-                        WHERE $usuario";
+                        ";
 
 
-    /*  $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);
+    $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);
 
 
-      ($rowCamiones = mysqli_fetch_array($queryCamiones)) */ ?>
+    ($rowCamiones = mysqli_fetch_array($queryCamiones)) ?>
 
     <div class="content">
         <div class="ImagenEmpleado">
