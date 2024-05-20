@@ -1,0 +1,95 @@
+body {
+    background-color: #242424;
+}
+
+
+header {
+    /*COLOR */
+    background: white;
+    /*MARGEN*/
+    margin: 25px;
+    margin-top: 40px;
+    /*Espacio interno*/
+    font-family: "Oswald", sans-serif;
+
+    background-attachment: fixed;
+    padding: 15px 5px;
+    box-shadow: 4px 4px 10px;
+    border-radius: 10px;
+}
+
+nav ul li a {
+
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px 10px;
+
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a:hover {
+    box-shadow: 0px 2PX blue;
+}
+
+#panelEmpleado {
+    background: #565656;
+
+    width: 500px;
+    /* Ancho del rectángulo */
+    height: 200px;
+    /* Altura del rectángulo */
+    border: 1px solid white;
+    /* Borde negro de 1px */
+    padding: 10px;
+    /* Espacio interno */
+    margin-left: 40px;
+}
+
+#panelEmpleado b {
+    color: white;
+
+}
+
+.content-section {
+    display: inline-block;
+    /* Para que estén uno al lado del otro */
+    vertical-align: top;
+    /* Alinear arriba */
+    width: 200px;
+    /* Ancho del primer div */
+    border: 1px solid white;
+    /* Borde negro de 1px */
+    padding: 10px;
+    /* Espacio interno */
+}
+
+.ImagenEmpleado {
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid white;
+    height: 200px;
+    display: inline-block;
+    /* Para que estén uno al lado del otro */
+    width: 200px;
+    /* Ancho del segundo div */
+    padding: 10px;
+    /* Espacio interno */
+}
+
+.ImagenEmpleado img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.posicionLogin {
+    float: right;
+    font: size 5px;
+}

@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/bcb64c38d6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/Style.css">
+    <link rel="stylesheet" href="css/EstiloPanel.css">
 
 </head>
 <header>
@@ -17,6 +17,8 @@
             <li><a href="#ruta">RUTAS</a></li>
             <li><a href="#vehiculos">VEHICULOS</a></li>
             <li><a href="#cargas">CARGAS</a></li>
+            <li class="posicionLogin"><a href="/logout">Cerrar sesión</a></li>
+
 
         </ul>
     </nav>
@@ -47,13 +49,19 @@ if ($resultado_empleado) {
     <div id="panelEmpleado" class="content-section">
 
         <h1>Información del Empleado</h1>
-        <p>Nombre: <?php echo $empleado['nombre']; ?></p>
-        <p>Apellido: <?php echo $empleado['apellido']; ?></p>
-        <p>Usuario: <?php echo $empleado['usuario']; ?></p>
-        <img src="<?php echo $empleado['foto']; ?>" alt="Foto de perfil">
 
-
+        <p><b>Nombre:</b> </p>
+        <p><b>Apellido:</b> </p>
+        <p><b>Usuario:</b> </p>
     </div>
+
+    <div class="ImagenEmpleado">
+        <img src="imagenesTranscosas/Logo.png" alt="Foto de perfil">
+    </div>
+
+
+
+
 
     <div id="ruta" class="content-section">
         <?php
@@ -64,23 +72,23 @@ if ($resultado_empleado) {
 
         // Consulta para obtener las rutas del día
         $query_rutas = "SELECT * FROM rutas WHERE fecha = CURDATE()";
-        $resultado_rutas = mysqli_query($conexion, $query_rutas);
-        if ($resultado_rutas) {
-            ?>
+        //$resultado_rutas = mysqli_query($conexion, $query_rutas);
+        //if ($resultado_rutas) {
+        ?>
 
-            <h2>Rutas del Día</h2>
-            <ul>
-                <?php while ($ruta = mysqli_fetch_assoc($resultado_rutas)) { ?>
-                    <li><?php echo $ruta['nombre_ruta']; ?></li>
-                <?php } ?>
-            </ul>
+        <h2>Rutas del Día</h2>
+        <ul>
+            <?php //while ($ruta = mysqli_fetch_assoc($resultado_rutas)) { ?>
+            <li><?php //echo $ruta['nombre_ruta']; ?></li>
+            <?php //} ?>
+        </ul>
 
-            <?php
-        } else {
-            echo "Error al obtener las rutas del día.";
-        }
-
-        mysqli_close($conexion);
+        <?php
+        //} else {
+        //    echo "Error al obtener las rutas del día.";
+        //}
+        
+        //mysqli_close($conexion);
         ?>
 
 
