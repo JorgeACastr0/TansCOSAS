@@ -1,7 +1,7 @@
 body {
 
     background-attachment: fixed;
-    background-image: url("../imagenesTranscosas/fondo.jpg");
+    /*background-image: url("../imagenesTranscosas/fondo.jpg");*/
     background-position: 61%;
     
 
@@ -243,4 +243,30 @@ footer {
 
 .section:target {
     display: block;
+}
+
+
+/*Empleados*/
+#panelEmpleado {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Estilos para el contenido de rutas */
+#ruta {
+    background-color: #ccffcc;
+    /* Verde claro */
+    padding: 20px;
+}
+
+/* Estilos para el contenido de vehículos */
+#vehiculos {
+    background-color: #d0d0d0;
+    padding: 20px;
+}
+
+/* Estilos para el contenido de cargas */
+#cargas {
+    background-color: #c0c0c0;
+    padding: 20px;
 }

@@ -1,0 +1,142 @@
+body {
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    /*COLOR */
+    background: white;
+    /*MARGEN*/
+    margin: 25px;
+    margin-top: 40px;
+    /*Espacio interno*/
+    font-family: "Oswald", sans-serif;
+
+    background-attachment: fixed;
+    padding: 15px 5px;
+    box-shadow: 4px 4px 10px;
+    border-radius: 10px;
+}
+
+nav ul li a {
+
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px 10px;
+
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+
+}
+
+nav ul li a:hover {
+    box-shadow: 0px 2PX blue;
+}
+
+.posicionLogin {
+    float: right;
+    font: size 5px;
+}
+
+.content {
+
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#panelEmpleado #vehiculos #ruta #cargas h1,
+h2,
+h3 {
+    text-align: center;
+
+}
+
+#panelEmpleado {
+    background: #565656;
+
+    width: 35%;
+    /* Ancho del rectángulo */
+    height: 20%;
+    /* Altura del rectángulo */
+    border: 1px solid white;
+    /* Borde negro de 1px */
+    padding: 10px;
+    /* Espacio interno */
+    margin-left: 40px;
+}
+
+#cargas {
+    width: 15%;
+    height: 20%;
+    background: #565656;
+
+}
+
+#ruta {
+    width: 50%;
+    height: 40%;
+    background: #565656;
+
+}
+
+#vehiculos {
+    width: 15%;
+    height: 20%;
+    background: #565656;
+
+
+}
+
+#panelEmpleado b,
+#vehiculos b {
+    color: white;
+
+}
+
+.content-section {
+    display: inline-block;
+    /* Para que estén uno al lado del otro */
+    vertical-align: top;
+    /* Alinear arriba */
+    width: 200px;
+    /* Ancho del primer div */
+    border: 1px solid white;
+    /* Borde negro de 1px */
+    padding: 10px;
+    /* Espacio interno */
+}
+
+.ImagenEmpleado {
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid white;
+    height: 200px;
+    display: inline-block;
+    /* Para que estén uno al lado del otro */
+    width: 200px;
+    /* Ancho del segundo div */
+    padding: 10px;
+    /* Espacio interno */
+}
+
+.ImagenEmpleado img,
+
+.Mapa img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
