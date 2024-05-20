@@ -244,3 +244,28 @@ footer {
 .section:target {
     display: block;
 }
+
+
+/*Empleados*/
+#panelEmpleado {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Estilos para el contenido de rutas */
+#ruta {
+    background-color: #e0e0e0;
+    padding: 20px;
+}
+
+/* Estilos para el contenido de vehículos */
+#vehiculos {
+    background-color: #d0d0d0;
+    padding: 20px;
+}
+
+/* Estilos para el contenido de cargas */
+#cargas {
+    background-color: #c0c0c0;
+    padding: 20px;
+}
