@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'panelAdmin.php';
 
 //Variables de conexion:
 $ubicacionDB = "localhost:3307";
@@ -17,8 +18,9 @@ if (!$datosConexion) {
     echo "Conectado a la base de datos de Transcosas <hr>";
 }
 
+echo $IDEmpleado;
 
-$id = $_POST["IDEmpleado"];
+$id = $IDEmpleado;
 
 $sqlEliminar = "DELETE FROM Usuarios WHERE id='$id'";
 $query = mysqli_query($datosConexion, $sqlEliminar);

@@ -28,7 +28,7 @@
 <?php
 
 session_start();
-require_once login.php;
+
 
 //Variables de conexion:
 $ubicacionDB = "localhost:3307";
@@ -68,8 +68,8 @@ echo "Conectado a la base de datos de Transcosas <hr>";
                         INNER JOIN 
                             Camiones 
                         ON 
-                            Empleados.IDEmpleado = Camiones.IDEmpleado; 
-                        WHERE $usuario";
+                            Empleados.IDEmpleado = Camiones.IDEmpleado; ";
+                        
                             
                 
                             $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);                     

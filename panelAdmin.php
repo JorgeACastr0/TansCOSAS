@@ -8,14 +8,14 @@ $claveDB = "12345";
 $nombreDB = "BaseDatosTransporte";
 
 //Crea la conexion a la BD MySQL dentro de DOcker
-/*$datosConexion = mysqli_connect($ubicacionDB,$usuarioDB, $claveDB, $nombreDB);
+$datosConexion = mysqli_connect($ubicacionDB,$usuarioDB, $claveDB, $nombreDB);
 
 //Compureba que si se haya conectado 
 if (!$datosConexion) {
     die("Conexion a la BD fallida: " . mysqli_connect_error());
 } else {
     echo "Conectado a la base de datos de Transcosas <hr>";
-}*/
+}
 
 
 ?>
@@ -68,22 +68,26 @@ if (!$datosConexion) {
                 $Usuario = mysqli_real_escape_string($datosConexion, $_POST["Usuario"]);
                 $Clave = mysqli_real_escape_string($datosConexion, $_POST["Clave"]);
                 $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST["TipoUsuario"]);
+                
 
                 $insertarUsuariosSQL = "INSERT INTO Usuarios (IDUsuarios, NombreUsuario, Clave, TipoUsuario) VALUES ($ID, '$Usuario', '$Clave', '$tipoUsuario')";
+                                        
                 mysqli_query($datosConexion, $insertarUsuariosSQL);
             }
 
 
-            if (isset($_POST["Nombre"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"])) {
+            if (isset($_POST["Nombre"]) && isset($_POST["Cedula"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"])) {
 
                 $nombreEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Nombre"]);
                 $apellidoEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Apellido"]);
                 $telefono = $_POST["Telefono"];
+                $ID = $_POST["Cedula"];
 
 
-                $insertarSQL = "INSERT INTO Empleados (NombreEmpleado, Telefono, ApellidoEmpleado) VALUES ('$nombreEmpleado', $telefono, '$apellidoEmpleado');";
+                $insertarSQL = "INSERT INTO Empleados (IDEmpleado, NombreEmpleado, Telefono, ApellidoEmpleado) VALUES ($ID,'$nombreEmpleado', $telefono, '$apellidoEmpleado');";
                 mysqli_query($datosConexion, $insertarSQL);
                 echo "Se han introducidos los siguientes datos:" . $nombreEmpleado . $apellidoEmpleado . $telefono . " Satisfactoriamente";
+                echo "<meta http-equiv='refresh' content='0; url=#empleados'>";
             }
             ?>
 
@@ -128,7 +132,12 @@ if (!$datosConexion) {
 
 
                             <th><a href="">Editar</a></th>
-                            <th><a href="">Eliminar</a></th>
+                            <td>
+                                <form method='POST' action=''>
+                                    <input type='hidden' name='id' value = <?= $row["IDUsuarios"] ?>>
+                                    <button type='submit' name='delete'>Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
 
                         <?php endwhile; ?>
@@ -136,6 +145,22 @@ if (!$datosConexion) {
                 </table>
             </div>
         </div>
+
+        <?php
+        
+         if (isset($_POST['delete'])) {
+            $id = $_POST['id'];
+            
+            $sqlEliminar = "DELETE FROM Usuarios WHERE IDUsuarios = $id";
+            $queryEliminar = mysqli_query($datosConexion, $sqlEliminar);
+            echo "<meta http-equiv='refresh' content='0'>";
+
+         } else{
+            
+         }
+    
+
+        ?>
 
         <div id="camiones" class="section">
             <h2>Camiones</h2>
@@ -167,13 +192,14 @@ if (!$datosConexion) {
                 <table border="3">
                     <thead>
                         <tr>
-                            <th>IDEmpleado</th>
-                            <th>Nombre Empleado</th>
-                            <th>Telefono</th>
-                            <th>Apellido Empleado</th>
+                           
                             <th>Placa</th>
                             <th>Modelo</th>
                             <th>Capacidad </th>
+                            <th>IDEmpleado</th>
+                            <th>Nombre Empleado</th>
+                            <th>Apellido Empleado</th>
+                            <th>Telefono</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -194,7 +220,9 @@ if (!$datosConexion) {
                         INNER JOIN 
                             Camiones 
                         ON 
-                            Empleados.IDEmpleado = Camiones.IDEmpleado; ";
+                            Empleados.IDEmpleado = Camiones.IDEmpleado
+						ORDER BY 
+							Empleados.IDEmpleado";
 
 
                         $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);
@@ -203,19 +231,23 @@ if (!$datosConexion) {
                         while ($rowCamiones = mysqli_fetch_array($queryCamiones)): ?>
 
                         <tr>
+                            
+                            <th><?= $rowCamiones["Placa"] ?></th>
+                            <th><?= $rowCamiones["Modelo"] ?></th>
+                            <th><?= $rowCamiones["Capacidad"] ?></th>
                             <th><?= $rowCamiones["IDEmpleado"] ?></th>
                             <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
                             <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
                             <th><?= $rowCamiones["Telefono"] ?></th>
-                            <th><?= $rowCamiones["Placa"] ?></th>
-                            <th><?= $rowCamiones["Modelo"] ?></th>
-                            <th><?= $rowCamiones["Capacidad"] ?></th>
 
 
                             <th><a href="">Editar</a></th>
-                            <th><a href="delete_user.php?id=<?= $row['IDEmpleado'] ?>"
-                                    class="users-table--delete">Eliminar</a></th>
-                            <th><a href="">Eliminar</a></th>
+                            <td>
+                                <form method='POST' action=''>
+                                    <input type='hidden' name='Placa' value = <?= $rowCamiones["Placa"] ?>>
+                                    <button type='submit' name='deleteCamiones'>Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
 
                         <?php endwhile; ?>
@@ -223,11 +255,34 @@ if (!$datosConexion) {
                 </table>
             </div>
 
+            <?php
+        
+         if (isset($_POST['deleteCamiones'])) {
+            $Placa = $_POST['Placa'];
+            
+            $sqlEliminar = "DELETE FROM Camiones WHERE Placa = $Placa";
+            $queryEliminar = mysqli_query($datosConexion, $sqlEliminar);
+            echo "<meta http-equiv='refresh' content='0'>";
+
+         } else{
+            
+         }
+    
+
+        ?>
+
 
         </div>
         <div id="rutas" class="section">
             <h2>Rutas</h2>
             <p>Contenido de Rutas.</p>
+            <form action="panelAdmin.php" method="post">
+                <input type="text" id="RutaID" name="RutaID" placeholder="Identificador de Ruta" required><br><br>
+                <input type="text" id="Origen" name="Origen" placeholder="Origen" required><br><br>
+                <input type="text" id="Destino" name="Destino" placeholder="Destino" required><br><br>
+                <input type="number" id="DistanciaKM" name="DistanciaKM" placeholder="DistanciaKM" required><br><br>
+                <input type="submit" value="Agregar">
+            </form>
         </div>
 
     </div>
