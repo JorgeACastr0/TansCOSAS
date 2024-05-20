@@ -23,10 +23,12 @@
 
 </header>
 
-<?php
+<?php ?>
+/* quitar este (?>) */
+<!--
 // Conexión a la base de datos y consulta para obtener la información del empleado
-$conexion = mysqli_connect("localhost", "usuario", "contraseña", "nombre_basedatos");
-if ($conexion === false) {
+//$conexion = mysqli_connect("localhost", "usuario", "contraseña", "nombre_basedatos");
+/*if ($conexion === false) {
     die("Error: No se pudo conectar. " . mysqli_connect_error());
 }
 
@@ -37,31 +39,34 @@ $resultado_empleado = mysqli_query($conexion, $query_empleado);
 if ($resultado_empleado) {
     $empleado = mysqli_fetch_assoc($resultado_empleado);
     ?>
+-->
 
-    <body>
-        <div id="panelEmpleado" class="content-section">
+*/
 
-            <h1>Información del Empleado</h1>
-            <p>Nombre: <?php echo $empleado['nombre']; ?></p>
-            <p>Apellido: <?php echo $empleado['apellido']; ?></p>
-            <p>Usuario: <?php echo $empleado['usuario']; ?></p>
-            <img src="<?php echo $empleado['foto']; ?>" alt="Foto de perfil">
+<body>
+    <div id="panelEmpleado" class="content-section">
 
-
-        </div>
-
-        <div id="ruta" class="content-section">
-            <?php
-} else {
-    echo "Error al obtener la información del empleado.";
-}
+        <h1>Información del Empleado</h1>
+        <p>Nombre: <?php echo $empleado['nombre']; ?></p>
+        <p>Apellido: <?php echo $empleado['apellido']; ?></p>
+        <p>Usuario: <?php echo $empleado['usuario']; ?></p>
+        <img src="<?php echo $empleado['foto']; ?>" alt="Foto de perfil">
 
 
-// Consulta para obtener las rutas del día
-$query_rutas = "SELECT * FROM rutas WHERE fecha = CURDATE()";
-$resultado_rutas = mysqli_query($conexion, $query_rutas);
-if ($resultado_rutas) {
-    ?>
+    </div>
+
+    <div id="ruta" class="content-section">
+        <?php
+        //} else {
+//    echo "Error al obtener la información del empleado.";
+//}
+        
+
+        // Consulta para obtener las rutas del día
+        $query_rutas = "SELECT * FROM rutas WHERE fecha = CURDATE()";
+        $resultado_rutas = mysqli_query($conexion, $query_rutas);
+        if ($resultado_rutas) {
+            ?>
 
             <h2>Rutas del Día</h2>
             <ul>
@@ -71,12 +76,12 @@ if ($resultado_rutas) {
             </ul>
 
             <?php
-} else {
-    echo "Error al obtener las rutas del día.";
-}
+        } else {
+            echo "Error al obtener las rutas del día.";
+        }
 
-mysqli_close($conexion);
-?>
+        mysqli_close($conexion);
+        ?>
 
 
 
