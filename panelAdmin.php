@@ -8,7 +8,7 @@ $claveDB = "12345";
 $nombreDB = "BaseDatosTransporte";
 
 //Crea la conexion a la BD MySQL dentro de DOcker
-$datosConexion = mysqli_connect($ubicacionDB,$usuarioDB, $claveDB, $nombreDB);
+$datosConexion = mysqli_connect($ubicacionDB, $usuarioDB, $claveDB, $nombreDB);
 
 //Compureba que si se haya conectado 
 if (!$datosConexion) {
@@ -69,10 +69,10 @@ if (!$datosConexion) {
                 $Usuario = mysqli_real_escape_string($datosConexion, $_POST["Usuario"]);
                 $Clave = mysqli_real_escape_string($datosConexion, $_POST["Clave"]);
                 $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST["TipoUsuario"]);
-                
+
 
                 $insertarUsuariosSQL = "INSERT INTO Usuarios (IDUsuarios, NombreUsuario, Clave, TipoUsuario) VALUES ($ID, '$Usuario', '$Clave', '$tipoUsuario')";
-                                        
+
                 mysqli_query($datosConexion, $insertarUsuariosSQL);
             }
 
@@ -148,14 +148,14 @@ if (!$datosConexion) {
                                 <th><?= $row["TipoUsuario"] ?></th>
 
 
-                            <th><a href="">Editar</a></th>
-                            <td>
-                                <form method='POST' action=''>
-                                    <input type='hidden' name='id' value = <?= $row["IDUsuarios"] ?>>
-                                    <button type='submit' name='delete'>Eliminar</button>
-                                </form>
-                            </td>
-                        </tr>
+                                <th><a href="">Editar</a></th>
+                                <td>
+                                    <form method='POST' action=''>
+                                        <input type='hidden' name='id' value=<?= $row["IDUsuarios"] ?>>
+                                        <button type='submit' name='delete'>Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
 
                         <?php endwhile; ?>
                     </tbody>
@@ -164,18 +164,18 @@ if (!$datosConexion) {
         </div>
 
         <?php
-        
-         if (isset($_POST['delete'])) {
+
+        if (isset($_POST['delete'])) {
             $id = $_POST['id'];
-            
+
             $sqlEliminar = "DELETE FROM Usuarios WHERE IDUsuarios = $id";
             $queryEliminar = mysqli_query($datosConexion, $sqlEliminar);
             echo "<meta http-equiv='refresh' content='0'>";
 
-         } else{
-            
-         }
-    
+        } else {
+
+        }
+
 
         ?>
 
@@ -209,7 +209,7 @@ if (!$datosConexion) {
                 <table border="3">
                     <thead>
                         <tr>
-                           
+
                             <th>Placa</th>
                             <th>Modelo</th>
                             <th>Capacidad </th>
@@ -247,25 +247,25 @@ if (!$datosConexion) {
 
                         while ($rowCamiones = mysqli_fetch_array($queryCamiones)): ?>
 
-                        <tr>
-                            
-                            <th><?= $rowCamiones["Placa"] ?></th>
-                            <th><?= $rowCamiones["Modelo"] ?></th>
-                            <th><?= $rowCamiones["Capacidad"] ?></th>
-                            <th><?= $rowCamiones["IDEmpleado"] ?></th>
-                            <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
-                            <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
-                            <th><?= $rowCamiones["Telefono"] ?></th>
+                            <tr>
+
+                                <th><?= $rowCamiones["Placa"] ?></th>
+                                <th><?= $rowCamiones["Modelo"] ?></th>
+                                <th><?= $rowCamiones["Capacidad"] ?></th>
+                                <th><?= $rowCamiones["IDEmpleado"] ?></th>
+                                <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
+                                <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
+                                <th><?= $rowCamiones["Telefono"] ?></th>
 
 
-                            <th><a href="">Editar</a></th>
-                            <td>
-                                <form method='POST' action=''>
-                                    <input type='hidden' name='Placa' value = <?= $rowCamiones["Placa"] ?>>
-                                    <button type='submit' name='deleteCamiones'>Eliminar</button>
-                                </form>
-                            </td>
-                        </tr>
+                                <th><a href="">Editar</a></th>
+                                <td>
+                                    <form method='POST' action=''>
+                                        <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
+                                        <button type='submit' name='deleteCamiones'>Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
 
                         <?php endwhile; ?>
                     </tbody>
@@ -273,20 +273,20 @@ if (!$datosConexion) {
             </div>
 
             <?php
-        
-         if (isset($_POST['deleteCamiones'])) {
-            $Placa = $_POST['Placa'];
-            
-            $sqlEliminar = "DELETE FROM Camiones WHERE Placa = $Placa";
-            $queryEliminar = mysqli_query($datosConexion, $sqlEliminar);
-            echo "<meta http-equiv='refresh' content='0'>";
 
-         } else{
-            
-         }
-    
+            if (isset($_POST['deleteCamiones'])) {
+                $Placa = $_POST['Placa'];
 
-        ?>
+                $sqlEliminar = "DELETE FROM Camiones WHERE Placa = $Placa";
+                $queryEliminar = mysqli_query($datosConexion, $sqlEliminar);
+                echo "<meta http-equiv='refresh' content='0'>";
+
+            } else {
+
+            }
+
+
+            ?>
 
 
         </div>
