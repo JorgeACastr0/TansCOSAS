@@ -16,6 +16,7 @@ if (!$datosConexion) {
 } else {
     echo "Conectado a la base de datos de Transcosas <hr>";
 }
+}
 
 
 ?>
@@ -121,14 +122,14 @@ if (!$datosConexion) {
                         while ($row = mysqli_fetch_array($query)): ?>
 
 
-                        <tr>
-                            <th><?= $row["IDUsuarios"] ?></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th><?= $row["NombreUsuario"]; ?></th>
-                            <th><?= $row["Clave"] ?></th>
-                            <th><?= $row["TipoUsuario"] ?></th>
+                            <tr>
+                                <th><?= $row["IDUsuarios"] ?></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th><?= $row["NombreUsuario"]; ?></th>
+                                <th><?= $row["Clave"] ?></th>
+                                <th><?= $row["TipoUsuario"] ?></th>
 
 
                             <th><a href="">Editar</a></th>
