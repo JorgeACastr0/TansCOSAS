@@ -1,10 +1,25 @@
 <?php
 session_start();
 
+//Variables de conexion:
+$ubicacionDB = "localhost:3307";
+$usuarioDB = "root";
+$claveDB = "12345";
+$nombreDB = "BaseDatosTransporte";
+
+//Crea la conexion a la BD MySQL dentro de DOcker
+$datosConexion = mysqli_connect($ubicacionDB,$usuarioDB, $claveDB, $nombreDB);
+
+//Compureba que si se haya conectado 
+if (!$datosConexion){
+    die("Conexion a la BD fallida: ".mysqli_connect_error());
+}
+else{
+echo "Conectado a la base de datos de Transcosas <hr>";
+}
+
+
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -34,18 +49,31 @@ session_start();
             <h2>Empleados</h2>
             <p>Contenido de Empleados.</p>
             <form action="panelAdmin.php" method="post">
-                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" require><br><br>
-                <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" require><br><br>
-                <input type="text" id="Username" name="Username" placeholder="Username" require><br><br>
-                <input type="text" id="contraseña" name="Contraseña" placeholder="Contraseña" require><br><br>
-                <input type="text" id="TipoUsuario" name="TipoUsuario" placeholder="Administrador/Usuario" require><br><br>
+                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" required><br><br>
+                <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" required><br><br>
+                <input type="text" id="Telefono" name="Telefono" placeholder="Telefono" required><br><br>
+                <input type="text" id="TipoUsuario" name="TipoUsuario" placeholder="Administrador/Usuario" required><br><br>
 
                 <input type="submit" value= "Agregar">
             </form>
 
+        <?php
+        if (isset($_POST["Nombre"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"]) && && isset($_POST["TipoUsuario"])) {
+
+            $nombreEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Nombre"]);
+            $apellidoEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Apellido"]);
+            $telefono = 
+            $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST["TipoUsuario"]);
+
+            $sql = "INSERT INTO Empleados (NombreEmpleado, "
+
+        }
+        ?>
+
+
             <div>
                 <h2>Usuarios Registrados</h2>
-                <table >
+                <table border="3">
                     <thead>
                         <tr>
                             <th>ID</th>
