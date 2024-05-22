@@ -45,7 +45,7 @@ if (!$datosConexion) {
             <li><a href="#cargas">Cargas</a></li>
             <hr id="lineagruesa">
 
-            <li id="agregar"><a href="generarOrden">Generar Orden</a></li>
+            <li id="agregar"><a href="#generarOrden">Generar Orden</a></li>
 
         </ul>
     </div>
@@ -345,6 +345,13 @@ if (!$datosConexion) {
                     </tbody>
                 </table>
 
+
+
+             <div id=generarOrden  class="section">
+                <h2>GENERAR ORDEN:</h2>
+                <p>Pasos para generar ordenes:</p>
+             
+            </div>
         </div>
 
         
