@@ -128,8 +128,8 @@ p {
     padding: 20px;
     font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
+    font-weight: 200;
+    font-style:normal;
 
 }
 
@@ -146,7 +146,7 @@ p {
 .oswald {
     font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
 }
 
@@ -271,9 +271,4 @@ footer {
 #cargas {
     background-color: #c0c0c0;
     padding: 20px;
-}
-
-
-div {
-    background: red;
 }
