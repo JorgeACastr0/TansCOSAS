@@ -51,7 +51,7 @@ if (!$datosConexion) {
             <p>Contenido de Empleados.</p>
             <form action="panelAdmin.php" method="post">
                 <input type="number" id="cedula" name="Cedula" placeholder="Cedula" required><br><br>
-                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" required><br><br>
+                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" pattern=".{8,30}" required><br><br>
                 <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" required><br><br>
                 <input type="text" id="Usuario" name="Usuario" placeholder="Usuario" required><br><br>
                 <input type="text" id="Clave" name="Clave" placeholder="Clave" required><br><br>
@@ -71,7 +71,7 @@ if (!$datosConexion) {
                 $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST["TipoUsuario"]);
 
 
-                $insertarUsuariosSQL = "INSERT INTO Usuarios (IDUsuarios, NombreUsuario, Clave, TipoUsuario) VALUES ($ID, '$Usuario', '$Clave', '$tipoUsuario')";
+                $insertarUsuariosSQL = "INSERT INTO Usuarios (IDUsuarios, NombreUsuario, Clave, TipoUsuario, idEmpleados) VALUES ($ID, '$Usuario', '$Clave', '$tipoUsuario', '$ID')";
 
                 mysqli_query($datosConexion, $insertarUsuariosSQL);
             }
