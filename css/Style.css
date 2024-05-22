@@ -16,7 +16,7 @@ header {
     margin-top: 40px;
     /*Espacio interno*/
     font-family: "Oswald", sans-serif;
-
+    position: fixed;
     background-attachment: fixed;
     padding: 15px 5px;
     box-shadow: 4px 4px 10px;
