@@ -42,6 +42,10 @@ if (!$datosConexion) {
             <li><a href="#empleados">Empleados</a></li>
             <li><a href="#camiones">Camiones</a></li>
             <li><a href="#rutas">Rutas</a></li>
+            <li><a href="#cargas">Cargas</a></li>
+            <hr id="lineagruesa">
+
+            <li id="agregar"><a href="generarOrden">Generar Orden</a></li>
 
         </ul>
     </div>

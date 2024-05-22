@@ -268,3 +268,20 @@ footer {
     background-color: #c0c0c0;
     padding: 20px;
 }
+
+#lineagruesa {
+    height: 5px;
+    background-color: black;
+    border: none;
+    border-radius: 40px;
+
+}
+
+#agregar {
+    background: green;
+
+}
+
+.panel ul li .agregar:hover {
+    background-color: green;
+}
