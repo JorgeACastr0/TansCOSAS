@@ -291,8 +291,67 @@ if (!$datosConexion) {
                 <input type="number" id="DistanciaKM" name="DistanciaKM" placeholder="DistanciaKM" required><br><br>
                 <input type="submit" value="Agregar">
             </form>
+
+            <table border="3">
+                    <thead>
+                        <tr>
+
+                            <th>RUTA ID</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Distancia (KM)</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <?php
+                        $leerRutasSQL = "SELECT 
+                            Empleados.*, 
+                            Camiones.*
+                        FROM 
+                            Empleados
+                        INNER JOIN 
+                            Camiones 
+                        ON 
+                            Empleados.IDEmpleado = Camiones.IDEmpleado
+						ORDER BY 
+							Empleados.IDEmpleado";
+
+
+                        $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);
+
+
+                        while ($rowCamiones = mysqli_fetch_array($queryCamiones)): ?>
+
+                            <tr>
+
+                                <th><?= $rowCamiones["Placa"] ?></th>
+                                <th><?= $rowCamiones["Modelo"] ?></th>
+                                <th><?= $rowCamiones["Capacidad"] ?></th>
+                                <th><?= $rowCamiones["IDEmpleado"] ?></th>
+                                <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
+                                <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
+                                <th><?= $rowCamiones["Telefono"] ?></th>
+
+
+                                <th><a href="">Editar</a></th>
+                                <td>
+                                    <form method='POST' action=''>
+                                        <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
+                                        <button type='submit' name='deleteCamiones'>Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+
         </div>
 
+        
     </div>
 
 
