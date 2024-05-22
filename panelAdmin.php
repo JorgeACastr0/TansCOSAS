@@ -51,7 +51,7 @@ if (!$datosConexion) {
             <p>Contenido de Empleados.</p>
             <form action="panelAdmin.php" method="post">
                 <input type="number" id="cedula" name="Cedula" placeholder="Cedula" required><br><br>
-                <input type="text" id="nombre" name="Nombre" placeholder="Nombre"  required><br><br>
+                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" required><br><br>
                 <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" required><br><br>
                 <input type="text" id="Usuario" name="Usuario" placeholder="Usuario" required><br><br>
                 <input type="text" id="Clave" name="Clave" placeholder="Clave" required><br><br>
@@ -63,7 +63,7 @@ if (!$datosConexion) {
             </form>
 
             <?php
-             if (isset($_POST["Nombre"]) && isset($_POST["Cedula"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"])) {
+            if (isset($_POST["Nombre"]) && isset($_POST["Cedula"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"])) {
 
                 $nombreEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Nombre"]);
                 $apellidoEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Apellido"]);
@@ -87,7 +87,7 @@ if (!$datosConexion) {
                 $insertarUsuariosSQL = "INSERT INTO Usuarios (IDUsuarios, NombreUsuario, Clave, TipoUsuario, idEmpleados) VALUES ($ID, '$Usuario', '$Clave', '$tipoUsuario', $ID)";
 
                 mysqli_query($datosConexion, $insertarUsuariosSQL);
-            }           
+            }
             ?>
 
 
@@ -121,10 +121,10 @@ if (!$datosConexion) {
                         Empleados.IDEmpleado =  Usuarios.idEmpleados
                     ORDER BY 
                         Empleados.IDEmpleado";
-                        
+
 
                         $query = mysqli_query($datosConexion, $leerUsuariosSQL);
-                       
+
 
 
                         while ($row = mysqli_fetch_array($query)): ?>
