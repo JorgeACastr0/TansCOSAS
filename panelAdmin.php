@@ -51,7 +51,7 @@ if (!$datosConexion) {
             <p>Contenido de Empleados.</p>
             <form action="panelAdmin.php" method="post">
                 <input type="number" id="cedula" name="Cedula" placeholder="Cedula" required><br><br>
-                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" pattern=".{8,30}" required><br><br>
+                <input type="text" id="nombre" name="Nombre" placeholder="Nombre"  required><br><br>
                 <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" required><br><br>
                 <input type="text" id="Usuario" name="Usuario" placeholder="Usuario" required><br><br>
                 <input type="text" id="Clave" name="Clave" placeholder="Clave" required><br><br>
@@ -63,21 +63,7 @@ if (!$datosConexion) {
             </form>
 
             <?php
-
-            if (isset($_POST["Cedula"]) && isset($_POST["Usuario"]) && isset($_POST["Clave"]) && isset($_POST["TipoUsuario"])) {
-                $ID = $_POST["Cedula"];
-                $Usuario = mysqli_real_escape_string($datosConexion, $_POST["Usuario"]);
-                $Clave = mysqli_real_escape_string($datosConexion, $_POST["Clave"]);
-                $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST["TipoUsuario"]);
-
-
-                $insertarUsuariosSQL = "INSERT INTO Usuarios (IDUsuarios, NombreUsuario, Clave, TipoUsuario, idEmpleados) VALUES ($ID, '$Usuario', '$Clave', '$tipoUsuario', '$ID')";
-
-                mysqli_query($datosConexion, $insertarUsuariosSQL);
-            }
-
-
-            if (isset($_POST["Nombre"]) && isset($_POST["Cedula"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"])) {
+             if (isset($_POST["Nombre"]) && isset($_POST["Cedula"]) && isset($_POST["Apellido"]) && isset($_POST["Telefono"])) {
 
                 $nombreEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Nombre"]);
                 $apellidoEmpleado = mysqli_real_escape_string($datosConexion, $_POST["Apellido"]);
@@ -90,6 +76,18 @@ if (!$datosConexion) {
                 echo "Se han introducidos los siguientes datos:" . $nombreEmpleado . $apellidoEmpleado . $telefono . " Satisfactoriamente";
                 echo "<meta http-equiv='refresh' content='0; url=#empleados'>";
             }
+
+            if (isset($_POST["Cedula"]) && isset($_POST["Usuario"]) && isset($_POST["Clave"]) && isset($_POST["TipoUsuario"])) {
+                $ID = $_POST["Cedula"];
+                $Usuario = mysqli_real_escape_string($datosConexion, $_POST["Usuario"]);
+                $Clave = mysqli_real_escape_string($datosConexion, $_POST["Clave"]);
+                $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST["TipoUsuario"]);
+
+
+                $insertarUsuariosSQL = "INSERT INTO Usuarios (IDUsuarios, NombreUsuario, Clave, TipoUsuario, idEmpleados) VALUES ($ID, '$Usuario', '$Clave', '$tipoUsuario', $ID)";
+
+                mysqli_query($datosConexion, $insertarUsuariosSQL);
+            }           
             ?>
 
 
@@ -113,14 +111,8 @@ if (!$datosConexion) {
                     <tbody>
                         <?php
                         $leerUsuariosSQL = "SELECT 
-                        Empleados.IDEmpleado, 
-                        Empleados.NombreEmpleado, 
-                        Empleados.Telefono, 
-                        Empleados.ApellidoEmpleado, 
-                        Usuarios.IDUsuarios, 
-                        Usuarios.NombreUsuario, 
-                        Usuarios.Clave,
-                        Usuarios.TipoUsuario
+                        Empleados.*, 
+                        Usuarios.*
                     FROM 
                         Empleados
                     INNER JOIN 
@@ -225,13 +217,8 @@ if (!$datosConexion) {
                     <tbody>
                         <?php
                         $leerCamionesSQL = "SELECT 
-                            Empleados.IDEmpleado, 
-                            Empleados.NombreEmpleado, 
-                            Empleados.Telefono, 
-                            Empleados.ApellidoEmpleado, 
-                            Camiones.Placa, 
-                            Camiones.Modelo, 
-                            Camiones.Capacidad
+                            Empleados.* 
+                            Camiones.*
                         FROM 
                             Empleados
                         INNER JOIN 
