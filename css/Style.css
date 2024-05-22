@@ -124,6 +124,8 @@ nav ul li div span.MenuLogin {
 
 p {
     font-size: 24px;
+    margin: 20px;
+    padding: 20px;
     font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -133,7 +135,7 @@ p {
 
 
 #TituloParrafo {
-    font-size: 29px;
+    font-size: 18px;
     font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
