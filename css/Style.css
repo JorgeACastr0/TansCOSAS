@@ -1,24 +1,22 @@
 body {
-
-    background-attachment: fixed;
-
-    background-position: 61%;
-
-
+    top: 10px;
 }
 
 /*Encabezado*/
 header {
+    width: 98%;
     /*COLOR */
     background: white;
     /*MARGEN*/
-    margin: 25px;
-    margin-top: 40px;
     /*Espacio interno*/
     font-family: "Oswald", sans-serif;
+
     position: fixed;
-    background-attachment: fixed;
-    padding: 15px 5px;
+    top: 0;
+    left: 10PX;
+
+
+    /*Borde y sombreado*/
     box-shadow: 4px 4px 10px;
     border-radius: 10px;
 }
