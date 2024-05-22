@@ -304,38 +304,34 @@ if (!$datosConexion) {
                     <tbody>
                         <?php
                         $leerRutasSQL = "SELECT 
-                            Empleados.*, 
-                            Camiones.*
-                        FROM 
-                            Empleados
-                        INNER JOIN 
-                            Camiones 
-                        ON 
-                            Empleados.IDEmpleado = Camiones.IDEmpleado
-						ORDER BY 
-							Empleados.IDEmpleado";
+                        Camiones.*, 
+                        Empleados.*,
+                        Rutas.*
+                        FROM Camiones
+                        JOIN Rutas ON Camiones.Placa = Rutas.PlacaCamiones
+                        JOIN Empleados ON Camiones.IDEmpleado = Empleados.IDEmpleado;";
 
 
-                        $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);
+                        $queryRutas = mysqli_query($datosConexion, $leerRutasSQL);
 
 
-                        while ($rowCamiones = mysqli_fetch_array($queryCamiones)): ?>
+                        while ($rowRutas = mysqli_fetch_array($queryRutas)): ?>
 
                             <tr>
 
-                                <th><?= $rowCamiones["Placa"] ?></th>
-                                <th><?= $rowCamiones["Modelo"] ?></th>
-                                <th><?= $rowCamiones["Capacidad"] ?></th>
-                                <th><?= $rowCamiones["IDEmpleado"] ?></th>
-                                <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
-                                <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
-                                <th><?= $rowCamiones["Telefono"] ?></th>
+                                <th><?= $rowRutas["Placa"] ?></th>
+                                <th><?= $rowRutas["Modelo"] ?></th>
+                                <th><?= $rowRutas["Capacidad"] ?></th>
+                                <th><?= $rowRutas["IDEmpleado"] ?></th>
+                                <th><?= $rowRutas["NombreEmpleado"] ?> </th>
+                                <th><?= $rowRutas["ApellidoEmpleado"] ?></th>
+                                <th><?= $rowRutas["Telefono"] ?></th>
 
 
                                 <th><a href="">Editar</a></th>
                                 <td>
                                     <form method='POST' action=''>
-                                        <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
+                                        <input type='hidden' name='Placa' value=<?= $rowRutas["Placa"] ?>>
                                         <button type='submit' name='deleteCamiones'>Eliminar</button>
                                     </form>
                                 </td>
