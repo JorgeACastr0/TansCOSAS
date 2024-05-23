@@ -28,7 +28,7 @@ if (!$datosConexion) {
     <title>PANEL ADMIN</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/Style.css">
+    <link rel="stylesheet" href="css/StyleAdmin.css">
 </head>
 
 <body>
@@ -49,13 +49,13 @@ if (!$datosConexion) {
 
         </ul>
     </div>
+
     <div class="content">
+
         <div id="empleados" class="section">
-            <h2>Empleados</h2>
-            <p>Contenido de Empleados.</p>
-            <form action="panelAdmin.php" method="post">
-                <input type="number" id="cedula" name="Cedula" placeholder="Cedula"  required><br><br>
-                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" minlength="3" maxlength="40" required><br><br>
+            <form class="form-empleados" action="panelAdmin.php" method="post">
+                <input type="number" id="cedula" name="Cedula" placeholder="Cedula"  required>
+                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" minlength="3" maxlength="40" required>
                 <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" minlength="3" maxlength="40" required><br><br>
                 <input type="text" id="Usuario" name="Usuario" placeholder="Usuario" minlength="3" maxlength="40" required><br><br>
                 <input type="text" id="Clave" name="Clave" placeholder="Clave" minlength="3" maxlength="40" required><br><br>
@@ -79,6 +79,8 @@ if (!$datosConexion) {
                 mysqli_query($datosConexion, $insertarEmpleadosSQL);
                 echo "Se han introducidos los siguientes datos:" . $nombreEmpleado . $apellidoEmpleado . $telefono . " Satisfactoriamente";
                 echo "<meta http-equiv='refresh' content='0; url=#empleados'>";
+
+
             }
 
             if (isset($_POST["Cedula"]) && isset($_POST["Usuario"]) && isset($_POST["Clave"]) && isset($_POST["TipoUsuario"])) {
@@ -96,8 +98,9 @@ if (!$datosConexion) {
 
 
             <div>
+                <hr>
                 <h2>Usuarios Registrados</h2>
-                <table border="3">
+                <table class="styled-table">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -109,6 +112,7 @@ if (!$datosConexion) {
                             <th>Tipo </th>
                             <th></th>
                             <th></th>
+
                         </tr>
 
                     </thead>
@@ -134,25 +138,28 @@ if (!$datosConexion) {
                         while ($row = mysqli_fetch_array($query)): ?>
 
 
-                            <tr>
-                                <th><?= $row["IDUsuarios"] ?></th>
-                                <th><?= $row["NombreEmpleado"] ?></th>
-                                <th><?= $row["ApellidoEmpleado"] ?></th>
-                                <th><?= $row["Telefono"] ?></th>
-                                <th><?= $row["NombreUsuario"]; ?></th>
-                                <th><?= $row["Clave"] ?></th>
-                                <th><?= $row["TipoUsuario"] ?></th>
-                                
+                        <tr>
+                            <th><?= $row["IDUsuarios"] ?></th>
+                            <th><?= $row["NombreEmpleado"] ?></th>
+                            <th><?= $row["ApellidoEmpleado"] ?></th>
+                            <th><?= $row["Telefono"] ?></th>
+                            <th><?= $row["NombreUsuario"]; ?></th>
+                            <th><?= $row["Clave"] ?></th>
+                            <th><?= $row["TipoUsuario"] ?></th>
+                            <td>
+                                <form method='POST'>
+                                    <input type='hidden' name='id' value=<?= $row["IDUsuarios"] ?>>
+                                    <button type='submit' name='editar'>Editar</button>
 
-
-                                <th><a href="">Editar</a></th>
-                                <td>
-                                    <form method='POST' action=''>
-                                        <input type='hidden' name='id' value=<?= $row["IDUsuarios"] ?>>
-                                        <button type='submit' name='delete'>Eliminar</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                </form>
+                            </td>
+                            <td>
+                                <form method='POST' action=''>
+                                    <input type='hidden' name='id' value=<?= $row["IDUsuarios"] ?>>
+                                    <button type='submit' name='delete'>Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
 
                         <?php endwhile; ?>
                     </tbody>
@@ -161,6 +168,52 @@ if (!$datosConexion) {
         </div>
 
         <?php
+
+        if (isset($_POST['editar'])) {
+            $id = $_POST['id'];
+            $sql = "SELECT * FROM Usuarios WHERE IDUsuarios = $id";
+            $query = mysqli_query($datosConexion, $sql);
+            $row = mysqli_fetch_array($query);
+
+            $idEmpleado = $row['idEmpleados'];
+            $sqlEmpleado = "SELECT * FROM Empleados WHERE IDEmpleado = $idEmpleado";
+            $queryEmpleado = mysqli_query($datosConexion, $sqlEmpleado);
+            $rowEmpleado = mysqli_fetch_array($queryEmpleado);
+
+            echo "<div id='editarFormulario'>
+                    <h2>Editar Usuario</h2>
+                    <form action='panelAdmin.php' method='post'>
+                        <input type='hidden' name='id' value='{$row['IDUsuarios']}'>
+                        <input type='text' name='Nombre' value='{$rowEmpleado['NombreEmpleado']}' required><br><br>
+                        <input type='text' name='Apellido' value='{$rowEmpleado['ApellidoEmpleado']}' required><br><br>
+                        <input type='number' name='Telefono' value='{$rowEmpleado['Telefono']}' required><br><br>
+                        <input type='text' name='Usuario' value='{$row['NombreUsuario']}' required><br><br>
+                        <input type='text' name='Clave' value='{$row['Clave']}' required><br><br>
+                        <input type='text' name='TipoUsuario' value='{$row['TipoUsuario']}' required><br><br>
+                        <input type='submit' name='update' value='Actualizar'>
+                    </form>
+                </div>";
+        }
+
+        if (isset($_POST['update'])) {
+            $id = $_POST['id'];
+            $nombre = mysqli_real_escape_string($datosConexion, $_POST['Nombre']);
+            $apellido = mysqli_real_escape_string($datosConexion, $_POST['Apellido']);
+            $telefono = mysqli_real_escape_string($datosConexion, $_POST['Telefono']);
+            $usuario = mysqli_real_escape_string($datosConexion, $_POST['Usuario']);
+            $clave = mysqli_real_escape_string($datosConexion, $_POST['Clave']);
+            $tipoUsuario = mysqli_real_escape_string($datosConexion, $_POST['TipoUsuario']);
+
+            $sqlUpdateEmpleado = "UPDATE Empleados SET NombreEmpleado='$nombre', ApellidoEmpleado='$apellido', Telefono='$telefono' WHERE IDEmpleado=(SELECT idEmpleados FROM Usuarios WHERE IDUsuarios=$id)";
+            $sqlUpdateUsuario = "UPDATE Usuarios SET NombreUsuario='$usuario', Clave='$clave', TipoUsuario='$tipoUsuario' WHERE IDUsuarios=$id";
+
+            mysqli_query($datosConexion, $sqlUpdateEmpleado);
+            mysqli_query($datosConexion, $sqlUpdateUsuario);
+
+            echo "<meta http-equiv='refresh' content='0'>";
+
+        }
+
 
         if (isset($_POST['delete'])) {
             $id = $_POST['id'];
@@ -179,7 +232,7 @@ if (!$datosConexion) {
         <div id="camiones" class="section">
             <h2>Camiones</h2>
             <p>Contenido de Camiones.</p>
-            <form action="panelAdmin.php" method="post">
+            <form class="form-empleados" action="panelAdmin.php" method="post">
                 <input type="text" id="Placa" name="Placa" placeholder="Placa" required><br><br>
                 <input type="text" id="Modelo" name="Modelo" placeholder="Modelo" required><br><br>
                 <input type="text" id="Capacidad" name="Capacidad" placeholder="Capacidad" required><br><br>
@@ -203,7 +256,7 @@ if (!$datosConexion) {
 
             <div>
                 <h2>CAMIONES REGISTRADOS</h2>
-                <table border="3">
+                <table class="styled-table">
                     <thead>
                         <tr>
 
@@ -240,25 +293,25 @@ if (!$datosConexion) {
 
                         while ($rowCamiones = mysqli_fetch_array($queryCamiones)): ?>
 
-                            <tr>
+                        <tr>
 
-                                <th><?= $rowCamiones["Placa"] ?></th>
-                                <th><?= $rowCamiones["Modelo"] ?></th>
-                                <th><?= $rowCamiones["Capacidad"] ?></th>
-                                <th><?= $rowCamiones["IDEmpleado"] ?></th>
-                                <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
-                                <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
-                                <th><?= $rowCamiones["Telefono"] ?></th>
+                            <th><?= $rowCamiones["Placa"] ?></th>
+                            <th><?= $rowCamiones["Modelo"] ?></th>
+                            <th><?= $rowCamiones["Capacidad"] ?></th>
+                            <th><?= $rowCamiones["IDEmpleado"] ?></th>
+                            <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
+                            <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
+                            <th><?= $rowCamiones["Telefono"] ?></th>
 
 
-                                <th><a href="">Editar</a></th>
-                                <td>
-                                    <form method='POST' action=''>
-                                        <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
-                                        <button type='submit' name='deleteCamiones'>Eliminar</button>
-                                    </form>
-                                </td>
-                            </tr>
+                            <th><a href="">Editar</a></th>
+                            <td>
+                                <form method='POST' action=''>
+                                    <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
+                                    <button type='submit' name='deleteCamiones'>Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
 
                         <?php endwhile; ?>
                     </tbody>
@@ -287,7 +340,7 @@ if (!$datosConexion) {
         <div id="rutas" class="section">
             <h2>Rutas</h2>
             <p>Contenido de Rutas.</p>
-            <form action="panelAdmin.php" method="post">
+            <form class="form-empleados" action="panelAdmin.php" method="post">
                 <input type="text" id="RutaID" name="RutaID" placeholder="Identificador de Ruta" required><br><br>
                 <input type="text" id="Origen" name="Origen" placeholder="Origen" required><br><br>
                 <input type="text" id="Destino" name="Destino" placeholder="Destino" required><br><br>
@@ -298,7 +351,7 @@ if (!$datosConexion) {
 
             <!--INSERTAR LAS RUTAS DEL FORMULARIO -->
             <?php
-            if (isset($_POST["RutaID"]) && isset($_POST["Origen"]) && isset($_POST["Destino"]) && isset($_POST["DistanciaKM"])&& isset($_POST["PlacaCamiones"])) {
+            if (isset($_POST["RutaID"]) && isset($_POST["Origen"]) && isset($_POST["Destino"]) && isset($_POST["DistanciaKM"]) && isset($_POST["PlacaCamiones"])) {
                 $RutaID = mysqli_real_escape_string($datosConexion, $_POST["RutaID"]);
                 $Origen = mysqli_real_escape_string($datosConexion, $_POST["Origen"]);
                 $Destino = mysqli_real_escape_string($datosConexion, $_POST["Destino"]);
@@ -310,9 +363,9 @@ if (!$datosConexion) {
             }
             ?>
 
-            <table border="3">
-                    <thead>
-                        <tr>
+            <table class="styled-table">
+                <thead>
+                    <tr>
 
                             <th>RUTA ID</th>
                             <th>Origen</th>
@@ -327,11 +380,11 @@ if (!$datosConexion) {
                             <th></th>
                         </tr>
 
-                    </thead>
-                    <tbody>
-                        <!---MUESTRA LAS RUTAS EN UNA TABLA -->
-                        <?php
-                        $leerRutasSQL = "SELECT 
+                </thead>
+                <tbody>
+                    <!---MUESTRA LAS RUTAS EN UNA TABLA -->
+                    <?php
+                    $leerRutasSQL = "SELECT 
                         Camiones.*, 
                         Empleados.*,
                         Rutas.*
@@ -340,12 +393,12 @@ if (!$datosConexion) {
                         JOIN Empleados ON Camiones.IDEmpleado = Empleados.IDEmpleado;";
 
 
-                        $queryRutas = mysqli_query($datosConexion, $leerRutasSQL);
+                    $queryRutas = mysqli_query($datosConexion, $leerRutasSQL);
 
 
-                        while ($rowRutas = mysqli_fetch_array($queryRutas)): ?>
+                    while ($rowRutas = mysqli_fetch_array($queryRutas)): ?>
 
-                            <tr>
+                    <tr>
 
                                 <th><?= $rowRutas["RutaID"] ?></th>
                                 <th><?= $rowRutas["Origen"] ?></th>
@@ -359,14 +412,14 @@ if (!$datosConexion) {
 
 
 
-                                <th><a href="">Editar</a></th>
-                                <td>
-                                    <form method='POST' action=''>
-                                        <input type='hidden' name='Placa' value=<?= $rowRutas["Placa"] ?>>
-                                        <button type='submit' name='deleteCamiones'>Eliminar</button>
-                                    </form>
-                                </td>
-                            </tr>
+                        <th><a href="">Editar</a></th>
+                        <td>
+                            <form method='POST' action=''>
+                                <input type='hidden' name='Placa' value=<?= $rowRutas["Placa"] ?>>
+                                <button type='submit' name='deleteCamiones'>Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
 
                         <?php endwhile; ?>
                     </tbody>
@@ -377,64 +430,65 @@ if (!$datosConexion) {
             <h2> INGRESA UNA NUEVA CARGA </h2>
         </div>
 
-        <div id=generarOrden  class="section">
-                <h2>GENERAR ORDEN:</h2>
-                <p>Pasos para generar ordenes:</p>
-                <form method="post" action="panelAdmin.php">
+        <div id=generarOrden class="section">
+            <h2>GENERAR ORDEN:</h2>
+            <p>Pasos para generar ordenes:</p>
+            <form method="post" action="panelAdmin.php">
 
-                    <label for="opcionCamiones"> SELECCIONA QUE CAMION :</label>
-                    <select name="opcionCamiones" id="opcionCamiones">
-                        <option value="">Camion:</option>
-                        <?php
-                        $listarCamionesSQL = "SELECT * FROM Camiones";
-                        $queryLeerCamiones = mysqli_query($datosConexion, $listarCamionesSQL);
+                <label for="opcionCamiones"> SELECCIONA QUE CAMION :</label>
+                <select name="opcionCamiones" id="opcionCamiones"><br>
 
-                        if ($queryLeerCamiones > 0)   {
-                            while ($listaCamiones = mysqli_fetch_array($queryLeerCamiones)){
-                                echo "<option value=''>".$listaCamiones["Placa"]." - ".$listaCamiones["Modelo"]."</option>";
-                            }
-                        } else{
-                            echo"no hay datos";
+                    <option value="">Camion:</option>
+                    <?php
+                    $listarCamionesSQL = "SELECT * FROM Camiones";
+                    $queryLeerCamiones = mysqli_query($datosConexion, $listarCamionesSQL);
+
+                    if ($queryLeerCamiones > 0) {
+                        while ($listaCamiones = mysqli_fetch_array($queryLeerCamiones)) {
+                            echo "<option value=''>" . $listaCamiones["Placa"] . " - " . $listaCamiones["Modelo"] . "</option>";
                         }
-                        ?>
-                                                
-                    </select>
-                    <br><br>
-                    <label for="opcionNombre"> SELECCIONA CONDUCTOR:</label>
-                    <select name="opcionNombre" id="desplegableNombres">
-                        <option value="">Empleado:</option>
-                        <?php
-                        $listarUsuariosSQL = "SELECT * FROM Empleados";
-                        $queryLeerUsuarios= mysqli_query($datosConexion, $listarUsuariosSQL);
+                    } else {
+                        echo "no hay datos";
+                    }
+                    ?>
 
-                        if ($queryLeerUsuarios > 0){
-                            while ($listaEmpleados = mysqli_fetch_array($queryLeerUsuarios)){
-                                echo "<option value=''>".$listaEmpleados["NombreEmpleado"]." ".$listaEmpleados["ApellidoEmpleado"]. "</option>";
-                            }
+                </select>
+                <br><br>
+                <label for="opcionNombre"> SELECCIONA CONDUCTOR:</label>
+                <select name="opcionNombre" id="desplegableNombres">
+                    <option value="">Empleado:</option>
+                    <?php
+                    $listarUsuariosSQL = "SELECT * FROM Empleados";
+                    $queryLeerUsuarios = mysqli_query($datosConexion, $listarUsuariosSQL);
+
+                    if ($queryLeerUsuarios > 0) {
+                        while ($listaEmpleados = mysqli_fetch_array($queryLeerUsuarios)) {
+                            echo "<option value=''>" . $listaEmpleados["NombreEmpleado"] . " " . $listaEmpleados["ApellidoEmpleado"] . "</option>";
                         }
-                        ?>
-                    </select>
-                    <br><br>
-                     <label for="opcionRuta">SELECCIONA RUTA:</label>
-                     <select name="opcionRuta" id="opcionRuta">
-                        <option value="">Ruta:</option>
-                        <?php
-                        $listarRutasSQL = "SELECT * FROM Rutas";
-                        $queryLeerRutas = mysqli_query($datosConexion, $listarRutasSQL);
+                    }
+                    ?>
+                </select>
+                <br><br>
+                <label for="opcionRuta">SELECCIONA RUTA:</label>
+                <select name="opcionRuta" id="opcionRuta">
+                    <option value="">Ruta:</option>
+                    <?php
+                    $listarRutasSQL = "SELECT * FROM Rutas";
+                    $queryLeerRutas = mysqli_query($datosConexion, $listarRutasSQL);
 
-                        if ( $queryLeerRutas > 0 ){
-                            while ($listaRutas = mysqli_fetch_array($queryLeerRutas)){
-                                echo "<option value=''>".$listaRutas["Origen"]." - ".$listaRutas["Destino"]."</option>";
-                            }
-
+                    if ($queryLeerRutas > 0) {
+                        while ($listaRutas = mysqli_fetch_array($queryLeerRutas)) {
+                            echo "<option value=''>" . $listaRutas["Origen"] . " - " . $listaRutas["Destino"] . "</option>";
                         }
 
-                        ?>
+                    }
 
-                    
+                    ?>
 
-                        
-            </div>
+
+
+
+        </div>
     </div>
 
 

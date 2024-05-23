@@ -1,30 +1,62 @@
-body {}
-
 /*Encabezado*/
 header {
     width: 98%;
     /*COLOR */
-    background: white;
+    background: #3a4a61;
     /*MARGEN*/
     /*Espacio interno*/
     font-family: "Oswald", sans-serif;
 
     position: fixed;
-    top: 0;
+    /*top: 0;*/
     left: 10PX;
-
 
     /*Borde y sombreado*/
     box-shadow: 4px 4px 10px;
     border-radius: 10px;
+
+    /*transicion del panel Menu*/
+    top: 20px;
+    transition: top 0.3s;
+}
+
+
+header.sticky {
+    top: 0;
+    /* Cuando se desplaza, se une a la parte superior */
+    left: 10 px;
+    width: 98%;
+    border-radius: 10px;
+    /* Ajuste opcional para eliminar el borde redondeado */
+}
+
+
+#stickyMessage {
+    display: none;
+    position: fixed;
+    font-family: "Oswald", sans-serif;
+    font-size: 25px;
+
+    /* ajustes */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 0;
+    z-index: 1000;
+}
+
+#stickyMessage.show {
+    top: 7px;
+    transition: top 0.3s;
+    display: block;
 }
 
 
 /*Menu Listas*/
 nav ul li a {
 
-    font-weight: bold;
-    color: black;
+
+    color: white;
     font-size: 16px;
     text-decoration: none;
     margin: 5px;
@@ -64,14 +96,7 @@ nav ul li a.admin {
 
 }
 
-/*
-nav ul li div span.MenuLogin {
 
-    cursor: pointer;
-    position: relative;
-
-}
-*/
 .contenidoMenu {
 
     display: none;
@@ -198,7 +223,7 @@ footer {
     width: 250px;
     background-color: #f0f0f0;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(255, 1, 1, 0.2);
     position: fixed;
     top: 0;
     left: 0;
@@ -273,15 +298,18 @@ footer {
     list-style-type: none;
     padding: 0;
 }
+
 .seccionServicios ul li {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
+
 .seccionServicios ul li img {
     margin-right: 20px;
     border-radius: 10px;
 }
+
 .seccionServicios ul li p {
     margin: 0;
     text-align: center;
@@ -302,4 +330,35 @@ footer {
 
 .panel ul li .agregar:hover {
     background-color: green;
+}
+
+
+
+
+footer {
+    display: flex;
+    /* Utiliza flexbox para alinear los elementos */
+    justify-content: space-between;
+    /* Alinea los elementos en los extremos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    background-color: #f0f0f0;
+    /* Color de fondo del footer */
+    padding: 20px;
+    /* Agrega espacio alrededor del contenido del footer */
+}
+
+#footer-left {
+    flex: 1;
+    /* Hace que este div ocupe el espacio necesario */
+}
+
+.footer-derecha {
+    flex: 2;
+    /* Evita que este div ocupe más espacio del necesario */
+}
+
+#footer-left ul li {
+    text-decoration: none;
+
 }

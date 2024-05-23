@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pagina de ingreso administrativo</title>
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -27,36 +25,92 @@
         </ul>
 
     </nav>
-</header>
+</header><br><br><br><br><br>
 
 <body>
-
-
-    <div class="imagenCamionLogin">
+    <!--    <div id="imagenCamionLogin">
         <img src="imagenesTranscosas/otrocamion.jpg" alt="imagen" title="etiqueta de la imagen" width="600"
             height="200" />
 
     </div>
-    <!--<CENTER><img src="imagenesTranscosas/otrocamion.jpg" alt="imagen" title="etiqueta de la imagen" width="600"
-            height="200" /></CENTER>
     -->
-    <CENTER>
-        <h1>Bienvenido transportes CO S.A.S</h1>
-    </CENTER>
-    <CENTER>
-        <div class="LoginDiseño">
-            <form action="login.php" method="post">
-                <label for="usuario"><b>Usuario:</b></label>
-                <input type="text" id="usuario" name="usuario" pattern="[a-zA-Z]+" title="Solo se permiten letras"
-                    required><br><br>
-                <label for="contrasena"><b>Contraseña:</b></label>
-                <input type="password" id="contrasena" name="contrasena" required><br><br>
-                <button type="submit">Iniciar sesión</button>
-            </form>
+    <div id="textoLogin">
+        <h1>TransCOSAS</h1>
+        <p>
+            Conectando destinos, superando expectativas <br>
+            Nuestra empresa, su transporte confiable.
+        </p>
+    </div>
+
+    <div id="menuLogin">
+        <div>
+
+            <h1 style="text-align: center;">Bienvenido TransCOSAS</h1>
+            <hr>
 
         </div>
 
-    </CENTER>
+
+        <div class="LoginDiseño">
+            <form action="login.php" method="post">
+
+                <input type="text" id="usuario" name="usuario" pattern="[a-zA-Z]+" title="Solo se permiten letras"
+                    placeholder="Usuario" required><br><br>
+
+                <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required><br><br>
+                <button id="inicioSesion" type="submit">Iniciar sesión</button>
+            </form>
+
+        </div>
+    </div>
+    <footer>
+
+        <div id="footer-left">
+            <ul>
+                <h2>¡Contáctanos!</H2>
+                <li>Teléfono: +57 123 456 789</li>
+                <li>Email: gerencia@transcosas.com</li>
+            </ul>
+
+        </div>
+        <div class="footer-derecha">
+            <h2>Síguenos:</h2>
+            <div class="social-icons">
+                <a href="https://wa.me/tunumero" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://www.instagram.com/tuempresa" target="_blank"><img src="instagram.png"
+                        alt="Instagram"></a>
+                <a href="https://www.facebook.com/tuempresa" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://www.linkedin.com/company/tuempresa" target="_blank"><img src="linkedin.png"
+                        alt="LinkedIn"></a>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <div id="stickyMessage">TransCOSAS</div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var header = document.querySelector('header');
+            var stickyMessage = document.getElementById('stickyMessage');
+
+            var headerOffsetTop = header.offsetTop;
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > headerOffsetTop) {
+                    header.classList.add('sticky');
+                    stickyMessage.classList.add('show');
+                } else {
+                    header.classList.remove('sticky');
+                    stickyMessage.classList.remove('show');
+                }
+
+            });
+        });
+    </script>
+
 
 
 

@@ -1,0 +1,176 @@
+.panel {
+    width: 150px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(255, 1, 1, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.panel ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.panel ul li {
+    margin-bottom: 10px;
+}
+
+.panel ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.panel ul li a:hover {
+    background-color: #ce1919;
+}
+
+.content {
+    margin-left: 12%;
+    /* Adjust according to panel width */
+    padding: 20px;
+}
+
+.section {
+    display: none;
+}
+
+.section:target {
+    display: block;
+}
+
+/*Aqui los edito*/
+
+#editarFormulario {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+#editarFormulario input[type="text"],
+#editarFormulario input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#editarFormulario input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#editarFormulario input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/*Aqui puse empleados*/
+
+
+/* Contenedor del formulario de empleados */
+.form-empleados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+}
+
+/* Estilos para los inputs del formulario */
+.form-empleados input[type="text"],
+.form-empleados input[type="number"],
+.form-empleados input[type="submit"] {
+    flex: 1 1 150px;
+    /* Ajusta el tamaño base de los campos */
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo específico para el botón de submit */
+.form-empleados input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-empleados input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+
+table.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+table.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+table.styled-table th,
+table.styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+table.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+table.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+table.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+table.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+table.styled-table tbody td form button {
+    background-color: #2295b8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+table.styled-table tbody td form button:hover {
+    background-color: #1f82a0;
+}
+
+table.styled-table tbody td form button[name="delete"] {
+    background-color: #f44336;
+}
+
+table.styled-table tbody td form button[name="delete"]:hover {
+    background-color: #e53935;
+}
