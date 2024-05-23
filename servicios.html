@@ -108,6 +108,27 @@
     </footer>
 
     </section>
+    <div id="stickyMessage">TransCOSAS</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var header = document.querySelector('header');
+            var stickyMessage = document.getElementById('stickyMessage');
+
+            var headerOffsetTop = header.offsetTop;
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > headerOffsetTop) {
+                    header.classList.add('sticky');
+                    stickyMessage.classList.add('show');
+                } else {
+                    header.classList.remove('sticky');
+                    stickyMessage.classList.remove('show');
+                }
+
+            });
+        });
+    </script>
 
 </body>
 

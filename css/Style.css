@@ -96,14 +96,7 @@ nav ul li a.admin {
 
 }
 
-/*
-nav ul li div span.MenuLogin {
 
-    cursor: pointer;
-    position: relative;
-
-}
-*/
 .contenidoMenu {
 
     display: none;
@@ -337,4 +330,35 @@ footer {
 
 .panel ul li .agregar:hover {
     background-color: green;
+}
+
+
+
+
+footer {
+    display: flex;
+    /* Utiliza flexbox para alinear los elementos */
+    justify-content: space-between;
+    /* Alinea los elementos en los extremos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    background-color: #f0f0f0;
+    /* Color de fondo del footer */
+    padding: 20px;
+    /* Agrega espacio alrededor del contenido del footer */
+}
+
+#footer-left {
+    flex: 1;
+    /* Hace que este div ocupe el espacio necesario */
+}
+
+.footer-derecha {
+    flex: 2;
+    /* Evita que este div ocupe más espacio del necesario */
+}
+
+#footer-left ul li {
+    text-decoration: none;
+
 }

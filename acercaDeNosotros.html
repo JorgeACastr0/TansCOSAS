@@ -14,24 +14,23 @@
 
 
 </head>
+<header>
+    <nav>
+        <ul class="MenuLista">
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="acercaDeNosotros.html">ACERCA DE NOSOTROS</a></li>
+            <li><a href="servicios.html">SERVICIOS</a></li>
+            <li><a href="rutas.html">RUTAS</a></li>
+            <li class="posicionLogin"><a href="ingreso.html">LOGIN</a></li>
+
+        </ul>
+
+
+    </nav>
+
+</header><br><br><br><br>
 
 <body>
-    <header>
-        <nav>
-            <ul class="MenuLista">
-                <li><a href="index.html">INICIO</a></li>
-                <li><a href="acercaDeNosotros.html">ACERCA DE NOSOTROS</a></li>
-                <li><a href="servicios.html">SERVICIOS</a></li>
-                <li><a href="rutas.html">RUTAS</a></li>
-                <li class="posicionLogin"><a href="ingreso.html">LOGIN</a></li>
-
-            </ul>
-
-
-        </nav>
-
-    </header><br><br><br><br>
-
 
     <section class="about-section">
         <div class="container">
@@ -45,22 +44,6 @@
                 viaje.</p>
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var header = document.querySelector('header');
-            var headerOffsetTop = header.offsetTop;
-
-            window.addEventListener('scroll', function () {
-                if (window.pageYOffset > headerOffsetTop) {
-                    header.classList.add('sticky');
-                } else {
-                    header.classList.remove('sticky');
-                }
-            });
-        });
-    </script>
-
-
     <div class="imagenAcercaDeNosotros">
         <img src="imagenesTranscosas/PersonaOpinion1.jpg" alt="Imagen2">
 
@@ -69,6 +52,29 @@
     <footer>
         <p>Derechos de autor © 2024 Empresa de Transporte. Todos los derechos reservados.</p>
     </footer>
+
+    <div id="stickyMessage">TransCOSAS</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var header = document.querySelector('header');
+            var stickyMessage = document.getElementById('stickyMessage');
+
+            var headerOffsetTop = header.offsetTop;
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > headerOffsetTop) {
+                    header.classList.add('sticky');
+                    stickyMessage.classList.add('show');
+                } else {
+                    header.classList.remove('sticky');
+                    stickyMessage.classList.remove('show');
+                }
+
+            });
+        });
+    </script>
+
 </body>
 
 </html>
