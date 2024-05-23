@@ -28,7 +28,7 @@ if (!$datosConexion) {
     <title>PANEL ADMIN</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/Style.css">
+    <link rel="stylesheet" href="css/StyleAdmin.css">
 </head>
 
 <body>
@@ -143,7 +143,9 @@ if (!$datosConexion) {
                             <th><?= $row["Clave"] ?></th>
                             <th><?= $row["TipoUsuario"] ?></th>
 
+                            <td>
 
+                            </td>
                             <th><a href="">Editar</a></th>
                             <td>
                                 <form method='POST' action=''>
