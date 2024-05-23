@@ -43,6 +43,20 @@
             </ul>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var header = document.querySelector('header');
+            var headerOffsetTop = header.offsetTop;
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > headerOffsetTop) {
+                    header.classList.add('sticky');
+                } else {
+                    header.classList.remove('sticky');
+                }
+            });
+        });
+    </script>
 
     <footer>
         <p>Derechos de autor © 2024 Empresa de Transporte. Todos los derechos reservados.</p>

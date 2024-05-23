@@ -30,7 +30,7 @@
 
         </nav>
 
-    </header>
+    </header><br><br><br><br>
 
 
     <section class="about-section">
@@ -45,6 +45,20 @@
                 viaje.</p>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var header = document.querySelector('header');
+            var headerOffsetTop = header.offsetTop;
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > headerOffsetTop) {
+                    header.classList.add('sticky');
+                } else {
+                    header.classList.remove('sticky');
+                }
+            });
+        });
+    </script>
 
 
     <div class="imagenAcercaDeNosotros">

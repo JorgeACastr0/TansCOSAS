@@ -14,8 +14,12 @@
 
 
 </head>
+
+
 <header>
+
     <nav>
+
         <ul class="MenuLista">
             <li><a href="index.html">INICIO</a></li>
             <li><a href="acercaDeNosotros.html">ACERCA DE NOSOTROS</a></li>
@@ -26,16 +30,21 @@
 
     </nav>
 
-</header><br><br><br>
+</header><br><br><br><br>
+
 
 <body>
-    <h1 style="text-align: center;"> Bienvenido a mi pagina TransCOSAS</h1><br>
+    <div>
+        <h1 id="tituloPrincipal" style="text-align: center;"> Bienvenido a mi pagina TransCOSAS</h1><br>
+    </div>
+
     <div>
         <img id="logoIzquierda" src="imagenesTranscosas/logo-transcosas.jpg" alt="logo">
     </div>
 
     <div>
-        <p> <id="TituloParrafo">Bienvenido a transportes CO S.A.S, tu solución integral para todas tus necesidades de
+        <p>
+            <id="TituloParrafo">Bienvenido a transportes CO S.A.S, tu solución integral para todas tus necesidades de
                 transporte.
                 En un mundo cada vez más conectado y dinámico, simplificar el proceso de envío y recepción es
                 fundamental.
@@ -50,7 +59,8 @@
                 enviar
                 paquetes pequeños,
                 mercancías voluminosas o cargas especiales, estamos aquí para ayudarte a encontrar la mejor opción de
-                transporte que se adapte a tus necesidades y presupuesto.</p>
+                transporte que se adapte a tus necesidades y presupuesto.
+        </p>
 
     </div>
 
@@ -84,6 +94,8 @@
 
             </div>
 
+
+
             <footer>
                 <div class="contenedor-footer">
                     <div class="footer-left">
@@ -105,6 +117,36 @@
                     </div>
                 </div>
             </footer>
+
+            <div id="stickyMessage">TransCOSAS</div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var header = document.querySelector('header');
+                    var tituloPrincipal = document.querySelector('#tituloPrincipal');
+                    var stickyMessage = document.getElementById('stickyMessage');
+
+                    var headerOffsetTop = header.offsetTop;
+                    var tituloPrincipalOffsetTop = tituloPrincipal.offsetTop;
+
+                    window.addEventListener('scroll', function () {
+                        if (window.pageYOffset > headerOffsetTop) {
+                            header.classList.add('sticky');
+                            stickyMessage.classList.add('show');
+                        } else {
+                            header.classList.remove('sticky');
+                            stickyMessage.classList.remove('show');
+                        }
+
+                        if (window.pageYOffset > tituloPrincipalOffsetTop) {
+                            tituloPrincipal.classList.add('sticky');
+                        } else {
+                            tituloPrincipal.classList.remove('sticky');
+                        }
+                    });
+                });
+            </script>
+
 
 </body>
 
