@@ -273,15 +273,18 @@ footer {
     list-style-type: none;
     padding: 0;
 }
+
 .seccionServicios ul li {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
+
 .seccionServicios ul li img {
     margin-right: 20px;
     border-radius: 10px;
 }
+
 .seccionServicios ul li p {
     margin: 0;
     text-align: center;
