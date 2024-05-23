@@ -42,7 +42,7 @@ if (!$datosConexion) {
             <li><a href="#empleados">Empleados</a></li>
             <li><a href="#camiones">Camiones</a></li>
             <li><a href="#rutas">Rutas</a></li>
-            <li><a href="#cargas">Cargas</a></li>
+            
             <hr id="lineagruesa">
 
             <li id="agregar"><a href="#generarOrden">Generar Orden</a></li>
@@ -285,7 +285,7 @@ if (!$datosConexion) {
                         ON 
                             Empleados.IDEmpleado = Camiones.IDEmpleado
 						ORDER BY 
-							Empleados.IDEmpleado";
+							Empleados.IDEmpleado"; 
 
 
                         $queryCamiones = mysqli_query($datosConexion, $leerCamionesSQL);
@@ -303,8 +303,13 @@ if (!$datosConexion) {
                             <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
                             <th><?= $rowCamiones["Telefono"] ?></th>
 
+                            <td>
+                                <form method='POST'>
+                                    <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
+                                    <button type='submit' name='editarCamiones'>Editar</button>
 
-                            <th><a href="">Editar</a></th>
+                                </form>
+                            </td>
                             <td>
                                 <form method='POST' action=''>
                                     <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
@@ -317,6 +322,63 @@ if (!$datosConexion) {
                     </tbody>
                 </table>
             </div>
+
+            <!--BOTON EDITAR-->
+
+            <?php
+
+        if (isset($_POST['editarCamiones'])) {
+            $Placa = $_POST['Placa'];
+            $sql = "SELECT * FROM Camiones WHERE Placa = '$Placa'";
+            $query = mysqli_query($datosConexion, $sql);
+            $rowCamionEditar = mysqli_fetch_array($query);
+
+           
+            echo "<div id='editarFormulario'>
+                    <h2>Editar Camion</h2>
+                    <form action='panelAdmin.php' method='post'>
+                        <input type='text' name='Placa' disabled value='{$rowCamionEditar['Placa']} '>
+                        <input type='text' name='Modelo' value='{$rowCamionEditar['Modelo']}' required><br><br>
+                        <input type='text' name='Capacidad' value='{$rowCamionEditar['Capacidad']}' required><br><br>
+                        <input type='number' name='IDEmpleado' value='{$rowCamionEditar['IDEmpleado']}' required><br><br>
+                     
+                        <input type='submit' name='updateCamiones' value='Actualizar'>
+                    </form>
+                </div>";
+        }
+
+        if (isset($_POST['updateCamiones'])) {
+            $Placa = $_POST['Placa'];
+            $Modelo = mysqli_real_escape_string($datosConexion, $_POST['Modelo']);
+            $Capacidad = mysqli_real_escape_string($datosConexion, $_POST['Capacidad']);
+            $IDEmpleado = mysqli_real_escape_string($datosConexion, $_POST['IDEmpleado']);
+            
+
+            $sqlUpdateCamion = "UPDATE Camiones SET Modelo='$Modelo', Capacidad='$Capacidad', IDEmpleado='$IDEmpleado' WHERE Placa='$Placa'";
+            
+
+            mysqli_query($datosConexion, $sqlUpdateCamion);
+           
+
+            echo "<meta http-equiv='refresh' content='0'>";
+
+        }
+
+
+        if (isset($_POST['delete'])) {
+            $id = $_POST['id'];
+
+            $sqlEliminar = "DELETE FROM Usuarios WHERE IDUsuarios = $id";
+            $queryEliminar = mysqli_query($datosConexion, $sqlEliminar);
+            echo "<meta http-equiv='refresh' content='0'>";
+
+        } else {
+
+        }
+
+
+        ?>
+
 
             <!---BOTON ELIMINAR EL -->
             <?php
@@ -426,9 +488,7 @@ if (!$datosConexion) {
             </table>             
         </div>
 
-        <div id="cargas" class="section">
-            <h2> INGRESA UNA NUEVA CARGA </h2>
-        </div>
+        
 
         <div id=generarOrden class="section">
             <h2>GENERAR ORDEN:</h2>
