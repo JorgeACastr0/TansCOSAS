@@ -54,12 +54,12 @@ if (!$datosConexion) {
             <h2>Empleados</h2>
             <p>Contenido de Empleados.</p>
             <form action="panelAdmin.php" method="post">
-                <input type="number" id="cedula" name="Cedula" placeholder="Cedula" required><br><br>
-                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" required><br><br>
-                <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" required><br><br>
-                <input type="text" id="Usuario" name="Usuario" placeholder="Usuario" required><br><br>
-                <input type="text" id="Clave" name="Clave" placeholder="Clave" required><br><br>
-                <input type="number" id="Telefono" name="Telefono" placeholder="Telefono" required><br><br>
+                <input type="number" id="cedula" name="Cedula" placeholder="Cedula"  required><br><br>
+                <input type="text" id="nombre" name="Nombre" placeholder="Nombre" minlength="3" maxlength="40" required><br><br>
+                <input type="text" id="Apellido" name="Apellido" placeholder="Apellido" minlength="3" maxlength="40" required><br><br>
+                <input type="text" id="Usuario" name="Usuario" placeholder="Usuario" minlength="3" maxlength="40" required><br><br>
+                <input type="text" id="Clave" name="Clave" placeholder="Clave" minlength="3" maxlength="40" required><br><br>
+                <input type="text" id="Telefono" name="Telefono" placeholder="Telefono" minlength="10" maxlength="10" required><br><br>
                 <input type="text" id="TipoUsuario" name="TipoUsuario" placeholder="Administrador/Usuario"
                     required><br><br>
 
@@ -142,6 +142,7 @@ if (!$datosConexion) {
                                 <th><?= $row["NombreUsuario"]; ?></th>
                                 <th><?= $row["Clave"] ?></th>
                                 <th><?= $row["TipoUsuario"] ?></th>
+                                
 
 
                                 <th><a href="">Editar</a></th>
@@ -183,7 +184,7 @@ if (!$datosConexion) {
                 <input type="text" id="Modelo" name="Modelo" placeholder="Modelo" required><br><br>
                 <input type="text" id="Capacidad" name="Capacidad" placeholder="Capacidad" required><br><br>
                 <input type="number" id="IDEmpleado" name="IDEmpleado" placeholder="Empleado a asignar (ID)" required><br><br>
-                <input type="submit" value="Agregar">
+                <input type="submit" value="Agregar Nuevo Camion">
             </form>
             <?php
 
@@ -292,7 +293,7 @@ if (!$datosConexion) {
                 <input type="text" id="Destino" name="Destino" placeholder="Destino" required><br><br>
                 <input type="number" id="DistanciaKM" name="DistanciaKM" placeholder="DistanciaKM" required><br><br>
                 <input type="text" id="PlacaCamiones" name="PlacaCamiones" placeholder="CamionAsignado" required><br><br>
-                <input type="submit" value="Agregar">
+                <input type="submit" value="Agregar Nueva Ruta">
             </form>
 
             <!--INSERTAR LAS RUTAS DEL FORMULARIO -->
@@ -318,6 +319,10 @@ if (!$datosConexion) {
                             <th>Destino</th>
                             <th>Distancia (KM)</th>
                             <th>Camion Asignado</th>
+                            <th>Modelo Camion</th>
+                            <th>ID Empleado</th>
+                            <th>Nombre Empleado</th>
+                            <th>Apellido Empleado</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -349,6 +354,9 @@ if (!$datosConexion) {
                                 <th><?= $rowRutas["PlacaCamiones"] ?> </th>
                                 <th><?= $rowRutas["Modelo"] ?></th>
                                 <th><?= $rowRutas["IDEmpleado"] ?></th>
+                                <th><?= $rowRutas["NombreEmpleado"] ?></th>
+                                <th><?= $rowRutas["ApellidoEmpleado"] ?></th>
+
 
 
                                 <th><a href="">Editar</a></th>
@@ -362,11 +370,11 @@ if (!$datosConexion) {
 
                         <?php endwhile; ?>
                     </tbody>
-            </table>
+            </table>             
+        </div>
 
-
-
-             
+        <div id="cargas" class="section">
+            <h2> INGRESA UNA NUEVA CARGA </h2>
         </div>
 
         <div id=generarOrden  class="section">
