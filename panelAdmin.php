@@ -313,7 +313,7 @@ if (!$datosConexion) {
                                     <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
                                     <button type='submit' name='editarCamiones'>Editar</button>
 
-                                <th><a href="">Editar</a></th>
+                        
                                 <td>
                                     <form method='POST' action=''>
                                         <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
