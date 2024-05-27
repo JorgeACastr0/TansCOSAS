@@ -432,9 +432,9 @@ footer {
 #primerparrafo {
     float: left;
     margin: 0%;
-    padding: 100px;
+    padding: 0%;
     height: 400px;
-    background: #ffe0c4;
+    background: #eaeafb;
 
 
 }
@@ -448,7 +448,7 @@ footer {
 
 #primerparrafo {
     text-align: justify;
-    margin: 0px 0;
+
 }
 
 .contenedorOpiniones {
@@ -482,7 +482,7 @@ footer {
     padding: 20px;
     width: 80%;
     /* Ajusta el ancho del cuadro */
-    max-width: 800px;
+    max-width: 920px;
     /* Ancho máximo del cuadro */
     border: 1px solid #ccc;
     /* Borde del cuadro */
