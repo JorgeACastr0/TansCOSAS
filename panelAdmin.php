@@ -14,7 +14,7 @@ $datosConexion = mysqli_connect($ubicacionDB, $usuarioDB, $claveDB, $nombreDB);
 if (!$datosConexion) {
     die("Conexion a la BD fallida: " . mysqli_connect_error());
 } else {
-    echo "Conectado a la base de datos de Transcosas <hr>";
+    #echo "Conectado a la base de datos de Transcosas <hr>";
 }
 
 

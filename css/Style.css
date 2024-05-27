@@ -506,7 +506,7 @@ footer {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
     /* Sombra del cuadro */
 
-    font-family: Arial, sans-serif;
+    font-family: "Oswald", sans-serif;
     line-height: 1.6;
     color: black;
     text-align: left;
@@ -518,10 +518,11 @@ footer {
     color: #0070C0;
     margin-bottom: 10px;
     text-align: left;
+
     /* Alinear el encabezado a la izquierda */
 }
 
 #primerparrafo p {
-    font-size: 1.1em;
+    font-size: 2.6em;
     margin: 0;
 }
