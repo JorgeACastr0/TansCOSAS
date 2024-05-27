@@ -229,14 +229,27 @@ p {
 
 
 .textoOpinion {
-    justify-content: right;
+    display: flex;
+    align-items: center;
+    
+}
 
+.imagenAcercaDeNosotros{
+    display: flex;
+    align-items: center;  
+    background-color: #aeb6bd;
+    border-radius: 10px;
 }
 
 .imagenAcercaDeNosotros img {
+    margin-right: 10px;
     border-radius: 50%;
-    width: 25px;
+   
+}
 
+.imagenAcercaDeNosotros p{
+    display: flex;
+    justify-content: right;
 }
 
 footer {
@@ -428,7 +441,6 @@ footer {
 .routes-section ul li img:hover {
     box-shadow: 2px 1px 3px 1px;
 }
-
 
 
 #primerparrafo {
