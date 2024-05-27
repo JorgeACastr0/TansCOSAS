@@ -235,6 +235,7 @@ p {
 
 .imagenAcercaDeNosotros img {
     border-radius: 50%;
+    width: 25px;
 
 }
 
@@ -248,6 +249,7 @@ footer {
 .footer-derecha {
 
     align-items: right;
+    
 }
 
 
