@@ -50,7 +50,6 @@ if (!$datosConexion) {
 
 
 
-
 <body>
 
     <?php
@@ -87,7 +86,7 @@ if (!$datosConexion) {
 
             <p><b>Nombre: <?= $rowCamiones["NombreEmpleado"] ?></b> </p>
             <p><b>Apellido: <?= $rowCamiones["ApellidoEmpleado"] ?> </b> </p>
-            <p><b>Usuario: <?= $rowCamiones["NombreEmpleado"] ?></b> </p>
+            <p><b>Usuario: <?= $rowCamiones["NombreEmpleado"]. $rowCamiones["ApellidoEmpleado"] ?></b> </p>
 
 
 
@@ -96,20 +95,14 @@ if (!$datosConexion) {
 
         <div id="vehiculos" class="content-section">
             <h2>VEHICULOS</h2>
-            <p><b>Camion Azul</b></p>
-            <p><b>placa: </b></p>
+            <p><b>Camion: <?= $rowCamiones["Modelo"] ?></b></p>
+            <p><b>placa: <?= $rowCamiones["Placa"] ?></b></p>
 
             <!-- Contenido de vehículos -->
         </div>
         <div id="cargas" class="content-section">
             <h2>CARGAS</h2>
-            <P>sajbdhbsad
-                sadadksanbd
-                dsandkjnsakld nask
-                asdnjsandjklasn dnsajkdn
-
-                asdnjsandjklasn
-            </P>
+            <P> CEMENTO </P>
             <!-- Contenido de cargas -->
         </div><br>
 
