@@ -135,13 +135,18 @@ nav ul li a.admin {
     margin-right: 20px;
     border-radius: 10%;
     box-shadow: 7px 7px 12px;
-    width: 30%;
-    height: 30%;
+    width: 20%;
+    height: 20%;
 }
 
 #logoIzquierda:hover {
     box-shadow: 3px 3px 10px;
 }
+
+.logo-container {
+    text-align: center;
+}
+
 
 p {
     font-size: 24px;
@@ -366,9 +371,12 @@ footer {
 
 
 #primerparrafo {
-    margin-top: 0%;
+    margin: 0%;
+    padding: 0px;
     height: 400px;
-    background: #b2ffb8;
+    background: #ffe0c4;
+
+
 }
 
 #tituloPrincipal {
@@ -377,25 +385,17 @@ footer {
     margin-bottom: 20px;
 }
 
-.logo-container {
-    text-align: center;
-}
-
-#logoIzquierda {
-    width: 150px;
-    height: auto;
-}
 
 #primerparrafo {
     text-align: justify;
-    margin: 20px 0;
+    margin: 0px 0;
 }
 
 .contenedorOpiniones {
     background: #ffe0c4;
     display: flex;
     justify-content: space-around;
-    margin: 20px 0;
+    margin: 0px 0;
 }
 
 .PersonaOpinion {
