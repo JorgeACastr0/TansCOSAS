@@ -1,4 +1,4 @@
-body{
+body {
     font-family: "Oswald", sans-serif;
 }
 
@@ -177,4 +177,9 @@ table.styled-table tbody td form button[name="delete"] {
 
 table.styled-table tbody td form button[name="delete"]:hover {
     background-color: #e53935;
+}
+
+#fondofondo {
+    background-color: #1c95ce;
+    text-align: center;
 }
