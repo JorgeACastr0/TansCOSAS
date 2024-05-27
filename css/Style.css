@@ -231,12 +231,12 @@ p {
 .textoOpinion {
     display: flex;
     align-items: center;
-    
+
 }
 
-.imagenAcercaDeNosotros{
+.imagenAcercaDeNosotros {
     display: flex;
-    align-items: center;  
+    align-items: center;
     background-color: #aeb6bd;
     border-radius: 10px;
 }
@@ -244,10 +244,10 @@ p {
 .imagenAcercaDeNosotros img {
     margin-right: 10px;
     border-radius: 50%;
-   
+
 }
 
-.imagenAcercaDeNosotros p{
+.imagenAcercaDeNosotros p {
     display: flex;
     justify-content: right;
 }
@@ -443,6 +443,7 @@ footer {
 }
 
 
+
 #primerparrafo {
     float: left;
     margin: 0%;
@@ -507,7 +508,7 @@ footer {
 
     font-family: "Oswald", sans-serif;
     line-height: 1.6;
-    color: green;
+    color: black;
     text-align: left;
     /* Alinear el texto a la izquierda */
 }
