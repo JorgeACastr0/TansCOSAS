@@ -1,10 +1,10 @@
 /*Menu Principal*/
 body {
-    background-color: #9c9c9c;
+    background-color: rgb(43, 41, 41);
     flex-direction: column;
     align-items: center;
     margin: 0;
-    padding: 0;   
+    padding: 0;
 }
 
 /*Encabezado*/
@@ -223,4 +223,8 @@ footer {
 #footer-left ul li {
     text-decoration: none;
 
+}
+
+#textoLogin p {
+    color: #639ad4;
 }
