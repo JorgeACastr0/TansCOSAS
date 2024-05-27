@@ -1,4 +1,4 @@
-*{
+* {
     /*Tipografia general de la pagina*/
     font-family: "Oswald", sans-serif;
 }
@@ -23,7 +23,7 @@ header {
     /*transicion del panel Menu*/
     top: 20px;
     transition: top 0.3s;
-    
+
 }
 
 
@@ -404,33 +404,35 @@ footer {
     padding: 0;
     font-family: "Oswald", sans-serif;
 }
+
 .routes-section ul li {
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-   
+
 }
+
 .routes-section ul li img {
     margin-right: 20px;
     border-radius: 10px;
-    
+
 }
+
 .routes-section ul li p {
     margin: 0;
     text-align: center;
 }
 
-.routes-section ul li img:hover{
+.routes-section ul li img:hover {
     box-shadow: 2px 1px 3px 1px;
 }
 
 
 
-
-
 #primerparrafo {
+    float: left;
     margin: 0%;
-    padding: 0px;
+    padding: 100px;
     height: 400px;
     background: #ffe0c4;
 
@@ -450,6 +452,7 @@ footer {
 }
 
 .contenedorOpiniones {
+
     background: #ffe0c4;
     display: flex;
     justify-content: space-around;
