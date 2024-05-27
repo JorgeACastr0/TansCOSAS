@@ -334,6 +334,7 @@ footer {
 
 
 
+/*Pie de pagina*/
 
 footer {
     display: flex;
@@ -361,4 +362,55 @@ footer {
 #footer-left ul li {
     text-decoration: none;
 
+}
+
+
+#primerparrafo {
+    margin-top: 0%;
+    height: 400px;
+    background: #b2ffb8;
+}
+
+#tituloPrincipal {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+#logoIzquierda {
+    width: 150px;
+    height: auto;
+}
+
+#primerparrafo {
+    text-align: justify;
+    margin: 20px 0;
+}
+
+.contenedorOpiniones {
+    background: #ffe0c4;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.PersonaOpinion {
+    text-align: center;
+    width: 30%;
+}
+
+.imagenOpinion {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.textoOpinion p {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
 }
