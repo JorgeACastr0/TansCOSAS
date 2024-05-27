@@ -136,18 +136,44 @@ nav ul li a.admin {
 
 /*Jorge*/
 #logoIzquierda {
+
     float: right;
     margin-left: 10px;
     margin-right: 20px;
     border-radius: 10%;
     box-shadow: 7px 7px 12px;
-    width: 30%;
+
+    height: 20%;
+    width: 25%;
+}
+
+#logoDerecha {
+    float: left;
+    margin-left: 80px;
+    margin-right: 20px;
+    border-radius: 10%;
+    box-shadow: 7px 7px 12px;
     height: 30%;
+    width: 30%;
+
 }
 
 #logoIzquierda:hover {
     box-shadow: 3px 3px 10px;
 }
+
+.logo-container {
+
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    /* Espacio entre las imágenes */
+
+}
+
+
+
 
 p {
     font-size: 24px;
@@ -340,6 +366,7 @@ footer {
 
 
 
+/*Pie de pagina*/
 
 footer {
     display: flex;
@@ -397,3 +424,85 @@ footer {
 }
 
 
+
+
+
+#primerparrafo {
+    margin: 0%;
+    padding: 0px;
+    height: 400px;
+    background: #ffe0c4;
+
+
+}
+
+#tituloPrincipal {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+#primerparrafo {
+    text-align: justify;
+    margin: 0px 0;
+}
+
+.contenedorOpiniones {
+    background: #ffe0c4;
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 0;
+}
+
+.PersonaOpinion {
+    text-align: center;
+    width: 30%;
+}
+
+.imagenOpinion {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.textoOpinion p {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#primerparrafo {
+    margin: 20px auto;
+    /* Centrar el cuadro horizontalmente */
+    padding: 20px;
+    width: 80%;
+    /* Ajusta el ancho del cuadro */
+    max-width: 800px;
+    /* Ancho máximo del cuadro */
+    border: 1px solid #ccc;
+    /* Borde del cuadro */
+    border-radius: 10px;
+    /* Esquinas redondeadas */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra del cuadro */
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: green;
+    text-align: left;
+    /* Alinear el texto a la izquierda */
+}
+
+#primerparrafo h1 {
+    font-size: 2em;
+    color: #0070C0;
+    margin-bottom: 10px;
+    text-align: left;
+    /* Alinear el encabezado a la izquierda */
+}
+
+#primerparrafo p {
+    font-size: 1.1em;
+    margin: 0;
+}

@@ -42,7 +42,7 @@ if (!$datosConexion) {
             <li><a href="#empleados">Empleados</a></li>
             <li><a href="#camiones">Camiones</a></li>
             <li><a href="#rutas">Rutas</a></li>
-            
+
             <hr id="lineagruesa">
 
             <li id="agregar"><a href="#generarOrden">Generar Orden</a></li>
@@ -142,28 +142,28 @@ if (!$datosConexion) {
                         while ($row = mysqli_fetch_array($query)): ?>
 
 
-                            <tr>
-                                <th><?= $row["IDUsuarios"] ?></th>
-                                <th><?= $row["NombreEmpleado"] ?></th>
-                                <th><?= $row["ApellidoEmpleado"] ?></th>
-                                <th><?= $row["Telefono"] ?></th>
-                                <th><?= $row["NombreUsuario"]; ?></th>
-                                <th><?= $row["Clave"] ?></th>
-                                <th><?= $row["TipoUsuario"] ?></th>
-                                <td>
-                                    <form method='POST'>
-                                        <input type='hidden' name='id' value=<?= $row["IDUsuarios"] ?>>
-                                        <button type='submit' name='editar'>Editar</button>
+                        <tr>
+                            <th><?= $row["IDUsuarios"] ?></th>
+                            <th><?= $row["NombreEmpleado"] ?></th>
+                            <th><?= $row["ApellidoEmpleado"] ?></th>
+                            <th><?= $row["Telefono"] ?></th>
+                            <th><?= $row["NombreUsuario"]; ?></th>
+                            <th><?= $row["Clave"] ?></th>
+                            <th><?= $row["TipoUsuario"] ?></th>
+                            <td>
+                                <form method='POST'>
+                                    <input type='hidden' name='id' value=<?= $row["IDUsuarios"] ?>>
+                                    <button type='submit' name='editar'>Editar</button>
 
-                                    </form>
-                                </td>
-                                <td>
-                                    <form method='POST' action=''>
-                                        <input type='hidden' name='id' value=<?= $row["IDUsuarios"] ?>>
-                                        <button type='submit' name='delete'>Eliminar</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                </form>
+                            </td>
+                            <td>
+                                <form method='POST' action=''>
+                                    <input type='hidden' name='id' value=<?= $row["IDUsuarios"] ?>>
+                                    <button type='submit' name='delete'>Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
 
                         <?php endwhile; ?>
                     </tbody>
@@ -298,29 +298,29 @@ if (!$datosConexion) {
 
                         while ($rowCamiones = mysqli_fetch_array($queryCamiones)): ?>
 
-                            <tr>
+                        <tr>
 
-                                <th><?= $rowCamiones["Placa"] ?></th>
-                                <th><?= $rowCamiones["Modelo"] ?></th>
-                                <th><?= $rowCamiones["Capacidad"] ?></th>
-                                <th><?= $rowCamiones["IDEmpleado"] ?></th>
-                                <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
-                                <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
-                                <th><?= $rowCamiones["Telefono"] ?></th>
+                            <th><?= $rowCamiones["Placa"] ?></th>
+                            <th><?= $rowCamiones["Modelo"] ?></th>
+                            <th><?= $rowCamiones["Capacidad"] ?></th>
+                            <th><?= $rowCamiones["IDEmpleado"] ?></th>
+                            <th><?= $rowCamiones["NombreEmpleado"] ?> </th>
+                            <th><?= $rowCamiones["ApellidoEmpleado"] ?></th>
+                            <th><?= $rowCamiones["Telefono"] ?></th>
 
                             <td>
                                 <form method='POST'>
                                     <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
                                     <button type='submit' name='editarCamiones'>Editar</button>
 
-                        
-                                <td>
-                                    <form method='POST' action=''>
-                                        <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
-                                        <button type='submit' name='deleteCamiones'>Eliminar</button>
-                                    </form>
-                                </td>
-                            </tr>
+
+                            <td>
+                                <form method='POST' action=''>
+                                    <input type='hidden' name='Placa' value=<?= $rowCamiones["Placa"] ?>>
+                                    <button type='submit' name='deleteCamiones'>Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
 
                         <?php endwhile; ?>
                     </tbody>
@@ -453,35 +453,35 @@ if (!$datosConexion) {
 
                     while ($rowRutas = mysqli_fetch_array($queryRutas)): ?>
 
-                        <tr>
+                    <tr>
 
-                            <th><?= $rowRutas["RutaID"] ?></th>
-                            <th><?= $rowRutas["Origen"] ?></th>
-                            <th><?= $rowRutas["Destino"] ?></th>
-                            <th><?= $rowRutas["DistanciaKM"] ?></th>
-                            <th><?= $rowRutas["PlacaCamiones"] ?> </th>
-                            <th><?= $rowRutas["Modelo"] ?></th>
-                            <th><?= $rowRutas["IDEmpleado"] ?></th>
-                            <th><?= $rowRutas["NombreEmpleado"] ?></th>
-                            <th><?= $rowRutas["ApellidoEmpleado"] ?></th>
+                        <th><?= $rowRutas["RutaID"] ?></th>
+                        <th><?= $rowRutas["Origen"] ?></th>
+                        <th><?= $rowRutas["Destino"] ?></th>
+                        <th><?= $rowRutas["DistanciaKM"] ?></th>
+                        <th><?= $rowRutas["PlacaCamiones"] ?> </th>
+                        <th><?= $rowRutas["Modelo"] ?></th>
+                        <th><?= $rowRutas["IDEmpleado"] ?></th>
+                        <th><?= $rowRutas["NombreEmpleado"] ?></th>
+                        <th><?= $rowRutas["ApellidoEmpleado"] ?></th>
 
 
 
-                            <th><a href="">Editar</a></th>
-                            <td>
-                                <form method='POST' action=''>
-                                    <input type='hidden' name='Placa' value=<?= $rowRutas["Placa"] ?>>
-                                    <button type='submit' name='deleteCamiones'>Eliminar</button>
-                                </form>
-                            </td>
-                        </tr>
+                        <th><a href="">Editar</a></th>
+                        <td>
+                            <form method='POST' action=''>
+                                <input type='hidden' name='Placa' value=<?= $rowRutas["Placa"] ?>>
+                                <button type='submit' name='deleteCamiones'>Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
 
                     <?php endwhile; ?>
                 </tbody>
             </table>
         </div>
 
-        
+
 
         <div id=generarOrden class="section">
             <h2>GENERAR ORDEN:</h2>
