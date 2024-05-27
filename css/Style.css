@@ -1,3 +1,8 @@
+*{
+    /*Tipografia general de la pagina*/
+    font-family: "Oswald", sans-serif;
+}
+
 /*Encabezado*/
 header {
     width: 98%;
@@ -18,6 +23,7 @@ header {
     /*transicion del panel Menu*/
     top: 20px;
     transition: top 0.3s;
+    
 }
 
 
@@ -362,3 +368,32 @@ footer {
     text-decoration: none;
 
 }
+
+
+
+.routes-section ul {
+    list-style-type: none;
+    padding: 0;
+    font-family: "Oswald", sans-serif;
+}
+.routes-section ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+   
+}
+.routes-section ul li img {
+    margin-right: 20px;
+    border-radius: 10px;
+    
+}
+.routes-section ul li p {
+    margin: 0;
+    text-align: center;
+}
+
+.routes-section ul li img:hover{
+    box-shadow: 2px 1px 3px 1px;
+}
+
+

@@ -369,18 +369,6 @@ if (!$datosConexion) {
         }
 
 
-        if (isset($_POST['delete'])) {
-            $id = $_POST['id'];
-
-            $sqlEliminar = "DELETE FROM Usuarios WHERE IDUsuarios = $id";
-            $queryEliminar = mysqli_query($datosConexion, $sqlEliminar);
-            echo "<meta http-equiv='refresh' content='0'>";
-
-        } else {
-
-        }
-
-
         ?>
 
 
@@ -390,7 +378,7 @@ if (!$datosConexion) {
             if (isset($_POST['deleteCamiones'])) {
                 $Placa = $_POST['Placa'];
 
-                $sqlEliminar = "DELETE FROM Camiones WHERE Placa = $Placa";
+                $sqlEliminar = "DELETE FROM Camiones WHERE Placa = '$Placa'";
                 $queryEliminar = mysqli_query($datosConexion, $sqlEliminar);
                 echo "<meta http-equiv='refresh' content='0'>";
 
