@@ -256,12 +256,14 @@ footer {
     border-radius: 10px;
     background-color: rgb(116, 67, 116);
     display: grid;
+    font-family: "Oswald", sans-serif;
 
 }
 
 .footer-derecha {
 
     align-items: right;
+    font-family: "Oswald", sans-serif;
 
 }
 

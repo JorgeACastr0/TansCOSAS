@@ -197,7 +197,7 @@ input[type="password"] {
 }
 
 footer {
-
+    font-family: "Oswald", sans-serif;
     display: flex;
     /* Utiliza flexbox para alinear los elementos */
     justify-content: space-between;
